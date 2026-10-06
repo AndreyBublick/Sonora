@@ -1,0 +1,19 @@
+.wrapper {
+    display: inline-block;
+    align-items: center;
+    gap: 8px;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.wrapper svg {
+    fill: currentColor;
+    stroke: currentColor;
+
+    -webkit-text-fill-color: initial;
+}

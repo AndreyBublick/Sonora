@@ -1,0 +1,28 @@
+.element > *:first-child {
+transition: all 0.15s linear;
+background-color: transparent;
+}
+
+.element > *:first-child:hover {
+    background-color: var(--accent-500);
+}
+
+.element > *:first-child:active {
+    background-color: var(--accent-600);
+}
+
+.element > .active{
+    background-color: var(--accent-400);
+    font-size: 24px;
+}
+.element svg{
+    transition: all 0.15s linear;
+}
+.active > span > svg{
+    width:26px;
+    height:26px;
+}
+.button:hover{
+    opacity: 0.75;
+}
+
