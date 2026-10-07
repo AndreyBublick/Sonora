@@ -5,4 +5,5 @@ export type SidebarContentProps = {
     logo?: ReactNode;
     sidebarData: SidebarSection[];
     onNavigate?: () => void;
+    wrapperClassName?:string
 };

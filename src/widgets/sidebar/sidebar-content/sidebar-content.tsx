@@ -3,13 +3,12 @@ import {SidebarContentProps} from "./sidebar-content.props";
 import {SidebarElement} from "../element";
 
 
-export const SidebarContent = ({ logo, sidebarData, onNavigate }: SidebarContentProps) => {
-
+export const SidebarContent = ({ logo, sidebarData, onNavigate, wrapperClassName='' }: SidebarContentProps) => {
 
     return (
         <>
             {logo}
-            <div>
+            <div className={`${wrapperClassName}`}>
                 {sidebarData.map(({ title, items }, index) => (
                     <div key={index}>
             <span

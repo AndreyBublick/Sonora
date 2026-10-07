@@ -1,6 +1,5 @@
 'use client'
 import type {SidebarElementProps} from "./sidebar-element.props";
-// import {Button, NavLink} from "react-bootstrap";
 import {usePathname} from "next/navigation";
 import {clsx} from "clsx";
 import style from "./sidebar-element.module.css";
@@ -21,7 +20,7 @@ export const SidebarElement = ({styles={} ,icon, body, onClick, ...rest}: Sideba
     );
 
     const commonStyles = {
-        padding:'6px 8px',
+        padding: isActive ? '6px 8px' : '6px 4px',
     }
 
     return (

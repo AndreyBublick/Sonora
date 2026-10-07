@@ -4,8 +4,11 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { SidebarContent } from "./sidebar-content";
 import type { SidebarProps } from "./sidebar.props";
 import styles from "./sidebar.module.css";
+import {useState} from "react";
 
 export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
+    const [open, setOpen] = useState(false);
+
 
     return (
         <>
@@ -18,10 +21,10 @@ export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
                     minHeight: "100%",
                 }}
             >
-                <SidebarContent logo={logo} sidebarData={sidebarData} />
+                <SidebarContent wrapperClassName={'pt-4'} logo={logo} sidebarData={sidebarData} />
             </aside>
 
-            <Dialog.Root>
+            <Dialog.Root open={open} onOpenChange={setOpen}>
                 <Dialog.Trigger asChild>
                     <button
                         type="button"
@@ -44,8 +47,8 @@ export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
 
                     <Dialog.Content className={`d-lg-none ${styles.content}`}>
                         <div className={`d-flex align-items-center justify-content-between px-3 py-2 border border-bottom-secondary border-bottom-1`}>
-                            <Dialog.Title asChild>
-                                <div>{logo}</div>
+                            <Dialog.Title asChild onClick={() => setOpen(false)}>
+                                {logo}
                             </Dialog.Title>
 
                             <Dialog.Close asChild>
@@ -63,8 +66,7 @@ export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
                             <SidebarContent
                                 logo={""}
                                 sidebarData={sidebarData}
-                                onNavigate={() => {
-                                }}
+                                onNavigate={() => setOpen(false)}
                             />
                         </div>
                     </Dialog.Content>
