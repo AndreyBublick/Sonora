@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./bootstrap-utils.scss";
 import "./globals.css";
 import {SidebarProvider} from "@/src/app/providers";
 

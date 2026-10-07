@@ -6,7 +6,7 @@ import {LinearText} from "@/src/shared/ui";
 export const Logo = ({onClick, href='/', title=''}: LogoProps) => {
     return (
         <Link href={href} className="fs-2 fw-bold d-inline-block" onClick={onClick}>
-            <LinearText>{title}Sonora</LinearText>
+            <LinearText>{title}</LinearText>
         </Link>
     );
 

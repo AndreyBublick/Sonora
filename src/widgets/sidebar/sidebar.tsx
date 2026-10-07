@@ -1,31 +1,16 @@
 "use client";
-import { useState } from "react";
-import { Offcanvas } from "react-bootstrap";
+
+import * as Dialog from "@radix-ui/react-dialog";
 import { SidebarContent } from "./sidebar-content";
 import type { SidebarProps } from "./sidebar.props";
+import styles from "./sidebar.module.css";
 
 export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
-    const [open, setOpen] = useState(false);
-
 
     return (
         <>
-            {/* Кнопка-бургер — только на мобилке */}
-            <button
-                type="button"
-                className="btn btn-link d-lg-none position-fixed top-0 start-0 m-3 z-3"
-                onClick={() => setOpen(true)}
-                aria-label="Открыть меню"
-            >
-                {/* иконка бургера */}
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-            </button>
-
-            {/* Десктопный сайдбар */}
             <aside
-                className="d-none d-lg-block pe-3 pt-5 pb-3"
+                className={`d-none d-lg-block pe-3 pt-5 pb-3`}
                 style={{
                     width: 400,
                     paddingLeft: 64,
@@ -36,25 +21,55 @@ export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
                 <SidebarContent logo={logo} sidebarData={sidebarData} />
             </aside>
 
-            {/* Мобильный offcanvas */}
-            <Offcanvas
-                show={open}
-                onHide={() => setOpen(false)}
-                placement="start"
-                className="d-lg-none"
-                style={{ width: 300 }}
-            >
-                <Offcanvas.Header closeButton className={`px-3 py-2`}>
-                    <Offcanvas.Title>{logo}</Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                    <SidebarContent
-                        logo={''}
-                        sidebarData={sidebarData}
-                        onNavigate={() => setOpen(false)}
-                    />
-                </Offcanvas.Body>
-            </Offcanvas>
+            <Dialog.Root>
+                <Dialog.Trigger asChild>
+                    <button
+                        type="button"
+                        className={`btn btn-link d-lg-none position-fixed top-0 start-0 m-3 z-3`}
+                        aria-label="Открыть меню"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M4 6h16M4 12h16M4 18h16"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                            />
+                        </svg>
+                    </button>
+                </Dialog.Trigger>
+
+                <Dialog.Portal>
+                    <Dialog.Overlay className={styles.overlay} />
+
+                    <Dialog.Content className={`d-lg-none ${styles.content}`}>
+                        <div className={`d-flex align-items-center justify-content-between px-3 py-2 border border-bottom-secondary border-bottom-1`}>
+                            <Dialog.Title asChild>
+                                <div>{logo}</div>
+                            </Dialog.Title>
+
+                            <Dialog.Close asChild>
+                                <button
+                                    type="button"
+                                    className={`border-0 bg-transparent fs-2 px-2 py-1`}
+                                    aria-label="Закрыть меню"
+                                >
+                                    ×
+                                </button>
+                            </Dialog.Close>
+                        </div>
+
+                        <div className={`flex-1 overflow-y-auto px-3 py-2`} >
+                            <SidebarContent
+                                logo={""}
+                                sidebarData={sidebarData}
+                                onNavigate={() => {
+                                }}
+                            />
+                        </div>
+                    </Dialog.Content>
+                </Dialog.Portal>
+            </Dialog.Root>
         </>
     );
 };

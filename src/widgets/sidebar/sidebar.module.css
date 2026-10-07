@@ -1,0 +1,52 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    animation: fadeIn 0.2s ease;
+}
+
+.overlay[data-state="closed"] {
+    animation: fadeOut 0.2s ease;
+}
+
+.content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(100vw, 300px);
+    background: var(--gray-800);
+    z-index: 1041;
+    display: flex;
+    flex-direction: column;
+}
+
+.content[data-state="open"] {
+    animation: slideInLeft 0.3s ease;
+}
+
+.content[data-state="closed"] {
+    animation: slideOutLeft 0.3s ease;
+}
+
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

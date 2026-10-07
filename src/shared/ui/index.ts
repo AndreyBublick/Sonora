@@ -1,3 +1,3 @@
 export * from './linear-text'
-// export * from './portal'
+export * from './ui-button'
 export * from './logo'
