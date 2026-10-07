@@ -1,0 +1,61 @@
+.common{
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.primary{
+background-color: var(--accent-400);
+}
+
+.primary:hover{
+    background-color: var(--accent-500);
+}
+.primary:active{
+    background-color: var(--accent-600);
+}
+
+.outline-primary{
+    background-color: transparent;
+    border: 1px solid var(--accent-400);
+    color: var(--accent-400);
+}
+
+.outline-primary:hover{
+    border-color:  var(--accent-500);
+    color: var(--accent-500);
+
+}
+.outline-primary:active{
+    border-color: var(--accent-600);
+    color: var(--accent-600);
+}
+
+/*Secondary*/
+.secondary{
+    background-color: var(--accent-second-400);
+}
+
+.secondary:hover{
+    background-color: var(--accent-second-500);
+}
+.secondary:active{
+    background-color: var(--accent-second-600);
+}
+
+.outline-secondary{
+    background-color: transparent;
+    border: 1px solid var(--accent-second-400);
+    color: var(--accent-second-400);
+}
+
+.outline-secondary:hover{
+    border-color:  var(--accent-second-500);
+    color: var(--accent-second-500);
+
+}
+.outline-secondary:active{
+    border-color: var(--accent-second-600);
+    color: var(--accent-second-600);
+}
+
+
+/*variant?: 'text' | 'primary' | 'secondary' | 'outline-primary' | 'outline-secondary';*/
