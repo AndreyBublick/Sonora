@@ -29,7 +29,7 @@ export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
                 style={{
                     width: 400,
                     paddingLeft: 64,
-                    borderRight: "2px solid #2d2d2d",
+                    borderRight: "2px solid var(--gray-600)",
                     minHeight: "100%",
                 }}
             >
