@@ -1,5 +1,5 @@
 .common{
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
 }
 
 .primary{
@@ -57,5 +57,12 @@ background-color: var(--accent-400);
     color: var(--accent-second-600);
 }
 
+.text:hover{
+    opacity: 0.75;
+}
+
+.text:active{
+    opacity: 0.5;
+}
 
 /*variant?: 'text' | 'primary' | 'secondary' | 'outline-primary' | 'outline-secondary';*/

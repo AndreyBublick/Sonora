@@ -6,7 +6,7 @@ import {SidebarElement} from "../element";
 export const SidebarContent = ({ logo, sidebarData, onNavigate, wrapperClassName='' }: SidebarContentProps) => {
 
     return (
-        <>
+        <nav>
             {logo}
             <div className={`${wrapperClassName}`}>
                 {sidebarData.map(({ title, items }, index) => (
@@ -25,6 +25,6 @@ export const SidebarContent = ({ logo, sidebarData, onNavigate, wrapperClassName
                     </div>
                 ))}
             </div>
-        </>
+        </nav>
     );
 };
