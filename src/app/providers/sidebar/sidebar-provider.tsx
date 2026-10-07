@@ -82,7 +82,7 @@ export const SidebarProvider = ({}) => {
 
 
     return (
-        <Sidebar sidebarData={sidebarData} logo={<Logo />} />
+        <Sidebar sidebarData={sidebarData} logo={<Logo title={'Sonora'} />} />
     );
 
 };
