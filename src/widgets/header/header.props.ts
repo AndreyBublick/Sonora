@@ -2,6 +2,6 @@ import {ReactNode} from "react";
 
 export type HeaderProps = {
     variant?:'default' | 'minimal'
-    children?:ReactNode
+    leftSlot?:ReactNode
     className?:string
 }
