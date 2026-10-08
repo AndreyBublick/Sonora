@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./bootstrap-utils.scss";
 import "./globals.css";
 import {ReactNode} from "react";
+import {QueryProvider} from "@/src/app/providers";
 
 export const metadata: Metadata = {
     title: "Sonora",
@@ -11,7 +12,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" data-bs-theme="dark">
-        <body>{children}</body>
+        <body>
+        <QueryProvider>
+        {children}
+        </QueryProvider>
+        </body>
         </html>
     );
 }
