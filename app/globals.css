@@ -50,10 +50,10 @@
 
 
   /* Semantic */
-  --success: #16a34a;
-  --danger:  #dc2626;
-  --warning: #f59e0b;
-  --info:    #0E9EEF;
+  --success: #34C759;
+  --danger: #FF383C;
+  --warning: #FF8D28;
+  --info:    #00C0E8;
 
   color-scheme: light;
 }
