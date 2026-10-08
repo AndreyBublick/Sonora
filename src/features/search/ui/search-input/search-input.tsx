@@ -2,7 +2,6 @@ import type {SearchInputProps} from "./search-input.props";
 import {UiInput} from "@/src/shared/ui";
 import {useSearch} from "@/src/features/search";
 
-
 export const SearchInput = ({config, delay}: SearchInputProps) => {
     const {results, query, setQuery, loading} = useSearch(config, delay)
     return (

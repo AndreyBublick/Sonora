@@ -1,0 +1,84 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  //border: 1px solid var(--color-border, #333);
+  outline: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  transition: outline-color 0.15s ease, background 0.15s ease;
+}
+
+.wrapper:focus-within {
+  outline-color: var(--accent-second-400, #6c5ce7);
+}
+
+/* Variants */
+.default {
+  border-radius: 6px;
+}
+
+.search {
+  border-radius: 8px;
+  background: var(--gray-700);
+  border-color: transparent;
+}
+.search input::placeholder{
+  color: var(--gray-100);
+  opacity: 0.6;
+}
+
+.search:focus-within {
+  border-color: transparent;
+}
+
+/* Invalid */
+.invalid {
+  border-color: var(--color-danger, #e74c3c);
+}
+
+/* Slots */
+.iconStart,
+.iconEnd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconEnd {
+  cursor: pointer;
+}
+
+/* Input */
+.input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted, #a0a0a0);
+}
+
+/* Error / Hint */
+.error {
+  font-size: 12px;
+}
+
+.hint {
+  font-size: 12px;
+}
