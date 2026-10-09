@@ -8,8 +8,7 @@ import {useMediaQuery} from "@/src/shared/lib";
 export const HeroSection = ({}: HeroSectionProps) => {
 
     const isMobile = useMediaQuery({maxWidth:992})
-
-
+    
     return (
         <section className={`rounded-4 position-relative d-flex align-items-center`} style={{
             marginTop:'-64px',

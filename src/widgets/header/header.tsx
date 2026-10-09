@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 import { UiButton } from "@/src/shared/ui";
 import Link from "next/link";
 import {useMediaQuery} from "@/src/shared/lib";
+import {AvatarChip} from "./avatar-chip";
 
 export const Header = ({ className = "", variant = "default", leftSlot }: HeaderProps) => {
     const links = [
@@ -12,12 +13,14 @@ export const Header = ({ className = "", variant = "default", leftSlot }: Header
         { title: "Premium", href: "/premium" },
     ];
 
+    const isAuth = true
+
     const isDesktop = useMediaQuery({minWidth:1500});
 
     const contentHeader =
         variant === "default" ? (
             <>
-                <div className={``} style={{flex:1, minWidth: 0,  }}>
+                <div className={``} style={{flex:1, minWidth: 0, }}>
                 {leftSlot}
                 </div>
 
@@ -34,9 +37,9 @@ export const Header = ({ className = "", variant = "default", leftSlot }: Header
                             </li>
                         ))}
                     </ul>
-                    <UiButton className="py-2 px-4 flex-shrink-0 text-nowrap">
+                    {isAuth ? <AvatarChip /> : <UiButton className="py-2 px-4 flex-shrink-0 text-nowrap">
                         Sign Up & Login
-                    </UiButton>
+                    </UiButton>}
                 </div>
 
             </>
@@ -45,7 +48,7 @@ export const Header = ({ className = "", variant = "default", leftSlot }: Header
         );
 
     return (
-        <header className={clsx("d-flex align-items-center justify-content-between gap-3", className)}>
+        <header className={clsx("d-flex align-items-center justify-content-between gap-3 position-relative z-1", className)}>
             {contentHeader}
         </header>
     );
