@@ -1,6 +1,6 @@
 'use client'
 import {UiInputErrorProps, UiInputHintProps, UiInputIconProps, UiInputLabelProps, UiInputProps} from "./ui-input.props";
-import {cloneElement, CSSProperties, forwardRef, isValidElement, useId} from "react";
+import {cloneElement, CSSProperties, forwardRef, isValidElement, MouseEventHandler, useId} from "react";
 import {clsx} from "clsx";
 import styles from "./ui-input.module.scss";
 import {UiInputContext, useUiInputContext} from "./lib";
@@ -8,7 +8,7 @@ import {UiInputContext, useUiInputContext} from "./lib";
 // --- Icon ---
 export const UiInputIcon = ({children, className = "", style = {} }: UiInputIconProps) => {
 
-    const currentStyles:CSSProperties = {width:24, height: 24,...style}
+    const currentStyles:CSSProperties = {width:24, height: 24, pointerEvents:'none',...style}
 
     return (
         <span>
@@ -87,7 +87,7 @@ const Input = forwardRef<HTMLInputElement, UiInputProps>(
 
         return (
             <UiInputContext.Provider value={context}>
-        <div className={clsx(styles.field, className)}>
+            <label htmlFor={inputId} className={clsx(styles.field, className)}>
                 {label && (<>{label}</>)}
 
                 <div
@@ -113,7 +113,7 @@ const Input = forwardRef<HTMLInputElement, UiInputProps>(
                 {error && (<>{error}</>)}
                 {hint && (<>{hint}</>)}
 
-            </div>
+            </label>
             </UiInputContext.Provider>
         );
     },

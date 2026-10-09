@@ -42,7 +42,7 @@
 
 /* Invalid */
 .invalid {
-  border-color: var(--color-danger, #e74c3c);
+  border-color: var(--danger, #e74c3c);
 }
 
 /* Slots */
@@ -71,7 +71,7 @@
 }
 
 .input::placeholder {
-  color: var(--color-text-muted, #a0a0a0);
+  color: var(--gray-100);
 }
 
 /* Error / Hint */
