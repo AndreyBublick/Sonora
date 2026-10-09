@@ -1,11 +1,7 @@
 export type SearchScope = "songs" | "artists" | "users" | "playlists";
 
 export type SearchResult = {
-    id: string;
-    title: string;
-    subtitle?: string;
-    cover?: string;
-    scope: SearchScope;
+
 };
 
 // config
