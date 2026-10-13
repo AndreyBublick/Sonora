@@ -1,7 +1,7 @@
 import {ComponentProps, CSSProperties, ReactElement, ReactNode} from "react";
 
 export type UiInputBaseProps = {
-    children:ReactElement
+    children:ReactNode
     className?:string
     style?:CSSProperties
     id?:string
@@ -17,9 +17,11 @@ export type UiInputProps = {
     iconStart?: ReactNode;
     iconEnd?: ReactNode;
     variant?: UiInputVariant;
+    classNameWrapper?:string
 } & ComponentProps<"input">;
 
 export type UiInputIconProps = UiInputBaseProps & {
+    children:ReactElement
 }
 
 export type UiInputLabelProps = UiInputBaseProps & {

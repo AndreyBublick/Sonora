@@ -14,6 +14,11 @@ background-color: var(--accent-400);
 .primary:active{
     background-color: var(--accent-600);
 }
+.primary:disabled{
+    color: var(--gray-300);
+    cursor: not-allowed;
+    background-color: var(--accent-900);
+}
 
 .outline-primary{
     background-color: transparent;

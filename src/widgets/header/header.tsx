@@ -13,7 +13,7 @@ export const Header = ({ className = "", variant = "default", leftSlot }: Header
         { title: "Premium", href: "/premium" },
     ];
 
-    const isAuth = true
+    const isAuth = false
 
     const isDesktop = useMediaQuery({minWidth:1500});
 
@@ -37,7 +37,7 @@ export const Header = ({ className = "", variant = "default", leftSlot }: Header
                             </li>
                         ))}
                     </ul>
-                    {isAuth ? <AvatarChip /> : <UiButton className="py-2 px-4 flex-shrink-0 text-nowrap">
+                    {isAuth ? <AvatarChip /> : <UiButton href={'/authorization'} as={'link'} className="py-2 px-4 flex-shrink-0 text-nowrap">
                         Sign Up & Login
                     </UiButton>}
                 </div>

@@ -1,0 +1,21 @@
+.recaptcha{
+  display: flex;
+  justify-content: flex-end;
+  :global(iframe) {
+    border-radius: 4px;
+  }
+}
+
+.normal {
+  :global(iframe) {
+    width: 302px !important;
+    height: 75.65px !important;
+  }
+}
+
+.compact {
+  :global(iframe) {
+    width: 157.75px !important;
+    height: 137.95px !important;
+  }
+}

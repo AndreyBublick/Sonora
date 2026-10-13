@@ -1,6 +1,6 @@
 'use client'
 import {UiInputErrorProps, UiInputHintProps, UiInputIconProps, UiInputLabelProps, UiInputProps} from "./ui-input.props";
-import {cloneElement, CSSProperties, forwardRef, isValidElement, MouseEventHandler, useId} from "react";
+import {cloneElement, CSSProperties, forwardRef, isValidElement, useId} from "react";
 import {clsx} from "clsx";
 import styles from "./ui-input.module.scss";
 import {UiInputContext, useUiInputContext} from "./lib";
@@ -63,7 +63,8 @@ const Input = forwardRef<HTMLInputElement, UiInputProps>(
             iconStart,
             iconEnd,
             variant = "default",
-            className,
+            className='',
+            classNameWrapper='',
             id,
             ...rest
         },
@@ -87,7 +88,7 @@ const Input = forwardRef<HTMLInputElement, UiInputProps>(
 
         return (
             <UiInputContext.Provider value={context}>
-            <label htmlFor={inputId} className={clsx(styles.field, className)}>
+            <label htmlFor={inputId} className={clsx(styles.field, classNameWrapper)}>
                 {label && (<>{label}</>)}
 
                 <div
@@ -101,7 +102,7 @@ const Input = forwardRef<HTMLInputElement, UiInputProps>(
                     <input
                         ref={ref}
                         id={inputId}
-                        className={styles.input}
+                        className={clsx(className, styles.input) }
                         aria-invalid={isInvalid}
                         aria-describedby={describedBy}
                         {...rest}
