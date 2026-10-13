@@ -22,30 +22,35 @@ export const SidebarProvider = ({}) => {
     const {logout} = useLogout()
     const {isAuth} = useAuth()
 
+    const iconStyle = {
+        width:18,
+        height:18,
+    }
+
     const sidebarData = [
         {
             title: "Menu",
             items: [
-                { icon: <HomeIcon />, body: "Home", href: "/" },
-                { icon: <GlobeIcon />, body: "Discover", href: "/discover" },
-                { icon: <DiscIcon />, body: "Albums", href: "/albums" },
-                { icon: <AvatarIcon />, body: "Artists", href: "/artists" },
+                { icon: <HomeIcon {...iconStyle}  />, body: "Home", href: "/" },
+                { icon: <GlobeIcon {...iconStyle} />, body: "Discover", href: "/discover" },
+                { icon: <DiscIcon {...iconStyle} />, body: "Albums", href: "/albums" },
+                { icon: <AvatarIcon {...iconStyle} />, body: "Artists", href: "/artists" },
             ],
         },
         {
             title: "Library",
             items: [
-                { icon: <CounterClockwiseClockIcon />, body: "Recently Added", href: "/recently_added" },
-                { icon: <ClockIcon />, body: "Most played", href: "/most_played" },
+                { icon: <CounterClockwiseClockIcon {...iconStyle} />, body: "Recently Added", href: "/recently_added" },
+                { icon: <ClockIcon {...iconStyle} />, body: "Most played", href: "/most_played" },
             ],
         },
         {
             title: "Playlist and favorite",
             items: [
-                { icon: <HeartIcon />, body: "Your favorites", href: "/favorites" },
-                { icon: <ReaderIcon />, body: "Your playlist", href: "/playlist" },
+                { icon: <HeartIcon {...iconStyle} />, body: "Your favorites", href: "/favorites" },
+                { icon: <ReaderIcon {...iconStyle} />, body: "Your playlist", href: "/playlist" },
                 {
-                    icon: <PlusIcon />,
+                    icon: <PlusIcon {...iconStyle} />,
                     as: "button" as const,
                     body: "Add playlist",
                     styles: { color: "var(--accent-second-600)" },
@@ -55,9 +60,9 @@ export const SidebarProvider = ({}) => {
         {
             title: "General",
             items: [
-                { icon: <GearIcon />, body: "Setting", href: "/setting" },
+                { icon: <GearIcon {...iconStyle} />, body: "Setting", href: "/setting" },
                 ...(isAuth
-                    ? [{ icon: <ExitIcon />, as: "button" as const, body: "Logout", onClick: () => logout(), styles: { color: "var(--accent-600)" } }]
+                    ? [{ icon: <ExitIcon {...iconStyle} />, as: "button" as const, body: "Logout", onClick: () => logout(), styles: { color: "var(--accent-600)" } }]
                     : []),
             ],
         },
