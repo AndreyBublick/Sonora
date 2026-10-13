@@ -3,7 +3,7 @@
 import {AuthForm} from "../auth-form";
 import {useState} from "react";
 import {ReCaptcha} from "../recaptcha";
-import {login} from "../../api/api";
+import {login} from "../../api/simple";
 import {tokenStorage} from "@/src/shared/lib";
 import {globalRouter} from "@/src/shared/lib/router";
 import {useMutation} from "@tanstack/react-query";
@@ -19,6 +19,11 @@ export const Authorization = () => {
     });
 
     const isDisabled = captchaToken === null
+
+
+    const slot = <div className={`d-flex flex-column gap-2`}>
+        <ReCaptcha theme={'dark'} onChange={setCaptchaToken} />
+    </div>
 
     const onSubmitHandler = async (formBody:Record<string, unknown>) => {
 
@@ -59,7 +64,7 @@ export const Authorization = () => {
                 },
 
             ]}
-            slot={<ReCaptcha theme={'dark'} onChange={setCaptchaToken} />}
+            slot={slot}
             /*footer={{
                 text: 'Already have an account?',
                 linkText: 'Log in',

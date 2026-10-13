@@ -22,6 +22,9 @@ api.interceptors.response.use(
 
         const original = error.config as RetryConfig | undefined;
         const isAuth =
+            original?.url?.includes("/auth/login") ||
+            original?.url?.includes("/auth/logout") ||
+            original?.url?.includes("/auth/refresh") ||
             original?.url?.includes("/auth/simple/login") ||
             original?.url?.includes("/auth/simple/logout") ||
             original?.url?.includes("/auth/simple/refresh");

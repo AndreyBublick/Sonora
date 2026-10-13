@@ -1,19 +1,21 @@
 'use client'
-import type { HeaderProps } from "./header.props";
-import { clsx } from "clsx";
-import { UiButton } from "@/src/shared/ui";
+import type {HeaderProps} from "./header.props";
+import {clsx} from "clsx";
+import {UiButton} from "@/src/shared/ui";
 import Link from "next/link";
 import {useMediaQuery} from "@/src/shared/lib";
 import {AvatarChip} from "./avatar-chip";
+import {useAuth} from "@/src/entities/session";
+
+const links = [
+    { title: "About Us", href: "/about_us" },
+    { title: "Upload", href: "/upload" },
+    { title: "Premium", href: "/premium" },
+];
 
 export const Header = ({ className = "", variant = "default", leftSlot }: HeaderProps) => {
-    const links = [
-        { title: "About Us", href: "/about_us" },
-        { title: "Upload", href: "/upload" },
-        { title: "Premium", href: "/premium" },
-    ];
 
-    const isAuth = false
+    const {isAuth} = useAuth()
 
     const isDesktop = useMediaQuery({minWidth:1500});
 

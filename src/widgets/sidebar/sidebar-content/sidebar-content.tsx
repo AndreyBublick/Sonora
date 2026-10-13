@@ -10,17 +10,24 @@ export const SidebarContent = ({ logo, sidebarData, onNavigate, wrapperClassName
             {logo}
             <div className={`${wrapperClassName}`}>
                 {sidebarData.map(({ title, items }, index) => (
-                    <div key={index}>
+                    <div key={index} className={`mb-3`}>
             <span
                 className="d-inline-block mb-4"
-                style={{ fontSize: 12, color: "var(--accent-700)" }}
+                style={{ fontSize: 12, color: "var(--accent-700)",}}
             >
               {title}
             </span>
                         <ul className="list-unstyled d-flex flex-column gap-4">
-                            {items.map((item, index) => (
-                                <SidebarElement key={index} {...item} onClick={onNavigate} />
-                            ))}
+                            {items.map((item, index) => {
+
+                                const onClickHandler = ()=>{
+                                    item?.onClick?.();
+                                    onNavigate?.()
+                                }
+
+                                return <SidebarElement key={index} {...item} onClick={onClickHandler}/>
+
+                            })}
                         </ul>
                     </div>
                 ))}

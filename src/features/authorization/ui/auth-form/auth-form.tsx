@@ -5,6 +5,7 @@ import {useState} from 'react';
 import {UiButton, UiInput} from '@/src/shared/ui';
 import type {AuthField, AuthFormProps} from './auth-form.props';
 import {RememberMe} from "./remember-me";
+import {AvatarIcon} from "@radix-ui/react-icons";
 
 export const AuthForm = ({
                              title,
@@ -72,20 +73,15 @@ export const AuthForm = ({
                 {loading ? 'Registration...' : submitLabel}
             </UiButton>
 
-            {footer && (
-                <p className="text-center small mt-3 mb-0" style={{
-                    color:'var(--gray-100)',
-                }}>
-                    {footer.text}{' '}
-                    <UiButton variant={'outline-secondary'} as={'link'}
-                        href={footer.href}
-                        className="text-decoration-none"
-                        style={{ border: 'none' }}
-                    >
-                        {footer.linkText}
-                    </UiButton>
-                </p>
-            )}
+            <div className={`my-2 text-center align-items-center d-flex gap-2 justify-content-between`}>
+               <hr className={'w-100'}/>
+            <span style={{lineHeight:1}} className={``}>or</span>
+            <hr className={'w-100'} />
+        </div>
+            <UiButton className={`text-center py-2 fs-5 gap-2 align-items-center justify-content-center d-flex`} variant={'secondary'} as={'link'} href={`${process.env.NEXT_PUBLIC_API_URL}/auth/oauth-redirect`}>
+                <AvatarIcon width={26} height={26} />
+                <span className={``}>Keycloak</span>
+            </UiButton>
         </form>
     );
 };
@@ -110,7 +106,6 @@ const AuthFieldRenderer = ({
                 className={'rounded-1'}
                 style={{
                     backgroundColor:'var(--surface-900)',
-                    padding:'8px 12px',
                     border:'0.5px solid var(--surface-700)'
                 }}
                 name={field.name}

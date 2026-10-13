@@ -3,18 +3,23 @@ import Image from 'next/image';
 import {CSSProperties} from 'react';
 import { Dropdown, UiButton } from '@/src/shared/ui';
 import type { AvatarChipProps } from './avatar-chip.props';
+import {useLogout} from "@/src/features/authorization/model";
+import {useAuth} from "@/src/entities/session";
+import {PersonIcon} from "@radix-ui/react-icons";
 
 export const AvatarChip = ({}: AvatarChipProps) => {
     const isImage = false;
     const avatarSrc = '';
+    const {logout} = useLogout()
     const styleCover: CSSProperties = {
         position: 'absolute',
         inset: 0,
         background: 'var(--gray-500)',
     };
+    const {user} = useAuth()
 
-    const handleLogout = () => {
-        console.log('logout');
+    const handleLogout = async () => {
+        logout()
     };
 
     return (
@@ -39,7 +44,7 @@ export const AvatarChip = ({}: AvatarChipProps) => {
                                     className="d-flex justify-content-center align-items-center"
                                     style={{ lineHeight: 1, ...styleCover }}
                                 >
-                                    U
+                                    <PersonIcon width={20} height={20} />
                                 </div>
                             )}
                         </div>
@@ -50,10 +55,8 @@ export const AvatarChip = ({}: AvatarChipProps) => {
                         className="d-flex align-items-center p-0"
                         style={{ gap: 12, cursor: 'pointer' }}
                     >
-
-
                         <div className="d-flex gap-2 align-items-center">
-                            <span style={{ lineHeight: 1 }}>User Name</span>
+                            <span style={{ lineHeight: 1 }}>{user?.login}</span>
                             <svg width="24" height="24" viewBox="0 0 15 15" fill="none">
                                 <path
                                     d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z"

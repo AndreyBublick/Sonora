@@ -17,11 +17,14 @@ export const refreshAccessToken = (): Promise<string> =>
 
         const refreshToken = tokenStorage.getRefresh();
         if (!refreshToken) throw new Error("No refresh token");
+        const authFlow = tokenStorage.getFlow();
+
+        const refreshClientPostUrl = authFlow==='simple' ? '/auth/simple/refresh' : '/auth/refresh'
 
         const { data } = await refreshClient.post<{
-            accessToken: string;
-            refreshToken: string;
-        }>("/auth/simple/refresh", { refreshToken });
+                accessToken: string;
+                refreshToken: string;
+        }>(refreshClientPostUrl, { refreshToken });
 
         tokenStorage.set(data.accessToken, data.refreshToken);
         lastToken = data.accessToken;
