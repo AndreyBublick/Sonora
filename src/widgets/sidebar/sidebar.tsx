@@ -5,6 +5,8 @@ import { SidebarContent } from "./sidebar-content";
 import type { SidebarProps } from "./sidebar.props";
 import styles from "./sidebar.module.css";
 import {useState} from "react";
+import {UiButton} from "@/src/shared/ui";
+import {TextAlignJustifyIcon} from "@radix-ui/react-icons";
 
 export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
     const [open, setOpen] = useState(false);
@@ -26,20 +28,13 @@ export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
 
             <Dialog.Root open={open} onOpenChange={setOpen}>
                 <Dialog.Trigger asChild>
-                    <button
+                    <UiButton asChild
                         type="button"
                         className={`btn btn-link d-lg-none position-fixed top-0 start-0 m-3 z-3`}
                         aria-label="Открыть меню"
                     >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M4 6h16M4 12h16M4 18h16"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                            />
-                        </svg>
-                    </button>
+                      <TextAlignJustifyIcon width={24} height={24} />
+                    </UiButton>
                 </Dialog.Trigger>
 
                 <Dialog.Portal>
