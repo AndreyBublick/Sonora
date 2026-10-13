@@ -48,6 +48,11 @@
   --accent-second-900:  #06476F;
   --accent-second-1000: #053754;
 
+  /* Surface */
+  --surface-700:  #62136E;
+  --surface-800:  #3B0432;
+  --surface-900:  #260C22;
+  --surface-1000: #1F0521;
 
   /* Semantic */
   --success: #34C759;
@@ -61,10 +66,10 @@
 /* DARK */
 [data-bs-theme="dark"] {
 
-  --background: var(--gray-800);   /* #181818 */
-  --foreground: var(--gray-100);   /* #ffffff */
-  --border:     var(--gray-600);   /* #1f1f1f */
-  --muted:      var(--gray-300);   /* #898989 */
+  --background: var(--gray-800);
+  --foreground: var(--gray-100);
+  --border:     var(--gray-600);
+  --muted:      var(--gray-300);
 
   --gray-100: #ffffff;
   --gray-200: #d9d9d9;

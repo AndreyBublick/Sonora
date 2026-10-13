@@ -43,7 +43,7 @@ export const Authorization = () => {
                 {
                     type: 'text',
                     name: 'login',
-                    label: 'Full name',
+                    label: 'Login',
                     placeholder: 'Enter Your Login',
                     required: true,
                     autoComplete: 'name',

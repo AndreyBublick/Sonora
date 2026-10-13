@@ -19,7 +19,9 @@ export default function WithSidebarLayout({ children }: { children: ReactNode })
     </div>
 
     return (
-        <div className="d-flex" style={{ minHeight: "100dvh" }}>
+        <div className={'d-flex'} style={{
+            minHeight:'inherit'
+        }}>
             <SidebarProvider />
             <PageWrapper className="w-100">
                 <Header className={`px-xl-4`} leftSlot={leftSlot} />
