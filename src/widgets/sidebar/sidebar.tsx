@@ -1,14 +1,14 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
-import { SidebarContent } from "./sidebar-content";
-import type { SidebarProps } from "./sidebar.props";
+import {SidebarContent} from "./sidebar-content";
+import type {SidebarProps} from "./sidebar.props";
 import styles from "./sidebar.module.css";
 import {useState} from "react";
 import {UiButton} from "@/src/shared/ui";
 import {TextAlignJustifyIcon} from "@radix-ui/react-icons";
 
-export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
+export const Sidebar = ({logo, sidebarData}: SidebarProps) => {
     const [open, setOpen] = useState(false);
 
 
@@ -23,25 +23,26 @@ export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
                     minHeight: "100%",
                 }}
             >
-                <SidebarContent wrapperClassName={'pt-4'} logo={logo} sidebarData={sidebarData} />
+                <SidebarContent wrapperClassName={'pt-4'} logo={logo} sidebarData={sidebarData}/>
             </aside>
 
             <Dialog.Root open={open} onOpenChange={setOpen}>
                 <Dialog.Trigger asChild>
                     <UiButton asChild
-                        type="button"
-                        className={`btn btn-link d-lg-none position-fixed top-0 start-0 m-3 z-3`}
-                        aria-label="Открыть меню"
+                              type="button"
+                              className={`btn btn-link d-lg-none position-fixed top-0 start-0 m-3 z-3`}
+                              aria-label="Открыть меню"
                     >
-                      <TextAlignJustifyIcon width={24} height={24} />
+                        <TextAlignJustifyIcon width={24} height={24}/>
                     </UiButton>
                 </Dialog.Trigger>
 
                 <Dialog.Portal>
-                    <Dialog.Overlay className={styles.overlay} />
+                    <Dialog.Overlay className={styles.overlay}/>
 
                     <Dialog.Content className={`d-lg-none ${styles.content}`}>
-                        <div className={`d-flex align-items-center justify-content-between px-3 py-2 border border-bottom-secondary border-bottom-1`}>
+                        <div
+                            className={`d-flex align-items-center justify-content-between px-3 py-2 border border-bottom-secondary border-bottom-1`}>
                             <Dialog.Title asChild onClick={() => setOpen(false)}>
                                 {logo}
                             </Dialog.Title>
@@ -57,7 +58,7 @@ export const Sidebar = ({ logo, sidebarData }: SidebarProps) => {
                             </Dialog.Close>
                         </div>
 
-                        <div className={`flex-1 overflow-y-auto px-3 py-2`} >
+                        <div className={`flex-1 overflow-y-auto px-3 py-2`}>
                             <SidebarContent
                                 logo={""}
                                 sidebarData={sidebarData}

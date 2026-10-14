@@ -10,7 +10,7 @@ import {useMutation} from "@tanstack/react-query";
 
 export const Authorization = () => {
     const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-    const { mutate, isPending } = useMutation({
+    const { mutate, isPending, isError } = useMutation({
         mutationFn: login,
         onSuccess: (data) => {
             tokenStorage.set(data.accessToken, data.refreshToken);
@@ -19,8 +19,6 @@ export const Authorization = () => {
     });
 
     const isDisabled = captchaToken === null
-
-
     const slot = <div className={`d-flex flex-column gap-2`}>
         <ReCaptcha theme={'dark'} onChange={setCaptchaToken} />
     </div>
@@ -33,13 +31,16 @@ export const Authorization = () => {
             password:String(formBody['password']),
             rememberMe:Boolean(formBody['rememberMe']),
         });
+        setCaptchaToken(null)
     }
 
     return (
         <AuthForm
+            key={isError ? 'error' : 'idle'}
             title="Sign Up & Login"
             submitLabel="Register"
             isDisabled={isDisabled}
+            isError={isError}
             isShowRemember
             loading={isPending}
             // error={error?.message}
@@ -51,16 +52,21 @@ export const Authorization = () => {
                     label: 'Login',
                     placeholder: 'Enter Your Login',
                     required: true,
-                    autoComplete: 'name',
+                    autoComplete: 'username',
+                    rules: {
+                        required: 'Enter login',
+                    },
                 },
                 {
                     type: 'password',
                     name: 'password',
                     label: 'Password',
-                    placeholder: 'Enter Password (minimum 8 characters)',
+                    placeholder: 'Enter Your Password',
                     required: true,
-                    minLength: 8,
-                    autoComplete: 'new-password',
+                    autoComplete: 'current-password',
+                    rules: {
+                        required: 'Enter password',
+                    },
                 },
 
             ]}
