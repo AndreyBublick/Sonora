@@ -58,9 +58,11 @@
 .iconEnd {
   cursor: pointer;
   position: absolute;
-  right: 12px;
+  right: 0px;
   top: 50%;
   transform: translateY(-50%);
+  height: 100%;
+  width: 40px;
 }
 
 /* Input */
@@ -81,7 +83,7 @@
   font-size: 14px;
 }
 
-.input[type='password'] {
+.input.password {
 padding-right: 40px;
 }
 
