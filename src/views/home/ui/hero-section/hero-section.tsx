@@ -13,8 +13,8 @@ export const HeroSection = ({}: HeroSectionProps) => {
         <section className={`rounded-4 position-relative d-flex align-items-center`} style={{
             marginTop:'-64px',
             minHeight:'31.00vw',
-            overflow:'hidden'
-
+            overflow:'hidden',
+            marginBottom: isMobile ? 40 : 64,
         }}>
             <div className={'position-absolute top-0 start-0 w-100 h-100 '} style={{
             transform:'scaleX(-1)',

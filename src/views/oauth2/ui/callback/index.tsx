@@ -5,6 +5,7 @@ import {useEffect, useRef} from "react";
 import {login} from "@/src/features/authorization/api";
 import {tokenStorage} from "@/src/shared/lib";
 import {globalRouter} from "@/src/shared/lib/router";
+import {Fallback} from "../fallback";
 
 export const Oauth2CallbackPage = ({}) => {
 
@@ -38,14 +39,7 @@ export const Oauth2CallbackPage = ({}) => {
         mutate(code);
     }, [code, mutate]);
 
-    return <div className="d-flex gap-3 flex-column justify-content-center align-items-center" style={{ minHeight: "100dvh" }}>
-        <Spinner />
-    <div>Logging in...</div>
-    </div>
-
+    return <Fallback />
 
 };
 
-export const Spinner = () => {
-    return <span className="spinner-border" role="status" aria-label="Loading" />
-};
