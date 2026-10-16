@@ -1,6 +1,6 @@
 
 export type TrackImage = {
-    type: string;
+    type: "thumbnail" | 'original' | 'medium';
     width: number;
     height: number;
     fileSize: number;
