@@ -6,7 +6,7 @@ import {MagnifyingGlassIcon} from "@radix-ui/react-icons";
 export const SearchInput = ({config, delay}: SearchInputProps) => {
     const {results, query, setQuery, loading} = useSearch(config, delay)
     return (
-        <UiInput style={{paddingLeft:0}} value={query} onChange={(e)=>setQuery(e.currentTarget.value)} placeholder={'Search For Musics, Artists, ...'} variant={'search'} iconStart={<UiInput.Icon style={{color:'var(--gray-100)', opacity:0.6}}>
+        <UiInput value={query} onChange={(e)=>setQuery(e.currentTarget.value)} placeholder={'Search For Musics, Artists, ...'} variant={'search'} iconStart={<UiInput.Icon style={{color:'var(--gray-100)', opacity:0.6}}>
            <MagnifyingGlassIcon />
         </UiInput.Icon> } />
     );
