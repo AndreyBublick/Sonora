@@ -6,7 +6,7 @@ export const SectionTitle = ({as='h2', children, className='', style={}}: Sectio
 
     const Wrapper = as
     return (
-        <Wrapper style={{color:'',...style,}} className={clsx(`fw-bold fs-2`,className) }>
+        <Wrapper style={{color:'',...style, padding:10}} className={clsx(`fw-bold fs-2`,className) }>
             {children}
         </Wrapper>
     );

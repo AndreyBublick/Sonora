@@ -134,8 +134,8 @@ export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia }: 
                     <button
                         type="button"
                         onClick={toggle}
-                        className="btn p-0 border-0 d-flex justify-content-center align-items-center cursor-pointer"
-                        style={{ opacity: isOver ? 1 : 0, color: "white", background: "transparent", zIndex: 1 }}
+                        className="btn border-0 d-flex justify-content-center align-items-center cursor-pointer"
+                        style={{padding:14, opacity: isOver ? 1 : 0, color: "white", background: "transparent", zIndex: 1 }}
                     >
                         {!isLoaded && <div className="spinner-border" />}
                         {isLoaded && (playing

@@ -18,7 +18,7 @@ export const MediaCard = ({
 }) => (
     <div
         className={clsx("d-flex flex-column gap-2 p-2 rounded-3", className)}
-        style={{background:'var(--gray-700)' , cursor: onClick ? "pointer" : "default", ...style }}
+        style={{background:'var(--gray-700)' , ...style }}
         onClick={onClick}
     >
         {children}
