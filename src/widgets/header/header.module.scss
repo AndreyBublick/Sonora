@@ -1,0 +1,46 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  isolation: isolate;
+  background-color: transparent;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  transition: padding 0.2s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+
+    background-color: color-mix(in srgb, var(--gray-800) 15%, transparent);
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transform: translateZ(0);
+  }
+}
+
+.scrolled::before {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .header::before {
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    backdrop-filter: blur(10px) saturate(140%);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .header::before {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: color-mix(in srgb, var(--gray-100) 92%, transparent);
+  }
+}

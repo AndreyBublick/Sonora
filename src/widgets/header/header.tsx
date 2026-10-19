@@ -6,6 +6,8 @@ import Link from "next/link";
 import {useMediaQuery} from "@/src/shared/lib";
 import {AvatarChip} from "./avatar-chip";
 import {useAuth} from "@/src/entities/session";
+import styles from "./header.module.scss";
+import {useHeader} from "@/src/widgets/header/lib";
 
 const links = [
     { title: "About Us", href: "/about_us" },
@@ -14,19 +16,21 @@ const links = [
 ];
 
 export const Header = ({ className = "", variant = "default", leftSlot }: HeaderProps) => {
-
-    const {isAuth} = useAuth()
-
-    const isDesktop = useMediaQuery({minWidth:1500});
+    const { isAuth } = useAuth();
+    const isDesktop = useMediaQuery({ minWidth: 1500 });
+   const {isScrolled} = useHeader()
 
     const contentHeader =
         variant === "default" ? (
             <>
-                <div className={``} style={{flex:1, minWidth: 0, }}>
-                {leftSlot}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                    {leftSlot}
                 </div>
 
-                <div className={`d-flex align-items-center justify-content-between gap-3`} style={isDesktop ? {width:'100%', maxWidth:'28.5vw'} : {}}>
+                <div
+                    className="d-flex align-items-center justify-content-between gap-3"
+                    style={isDesktop ? { width: "100%", maxWidth: "28.5vw" } : {}}
+                >
                     <ul
                         className="d-none d-lg-flex align-items-center justify-content-around flex-grow-1 gap-3 mb-0"
                         style={{ listStyle: "none", minWidth: 0 }}
@@ -39,18 +43,33 @@ export const Header = ({ className = "", variant = "default", leftSlot }: Header
                             </li>
                         ))}
                     </ul>
-                    {isAuth ? <AvatarChip /> : <UiButton href={'/authorization'} as={'link'} className="py-2 px-4 flex-shrink-0 text-nowrap">
-                        Sign Up & Login
-                    </UiButton>}
+                    {isAuth ? (
+                        <AvatarChip />
+                    ) : (
+                        <UiButton
+                            href={"/authorization"}
+                            as={"link"}
+                            className="py-2 px-4 flex-shrink-0 text-nowrap"
+                        >
+                            Sign Up & Login
+                        </UiButton>
+                    )}
                 </div>
-
             </>
         ) : (
-            <>321</>
+            <></>
         );
 
     return (
-        <header className={clsx("d-flex align-items-center justify-content-between gap-3 position-relative z-1", className)}>
+        <header
+            className={clsx(
+                styles.header,
+                isScrolled && styles.scrolled,
+                isScrolled && `py-2`,
+                "d-flex align-items-center justify-content-between gap-3",
+                className,
+            )}
+        >
             {contentHeader}
         </header>
     );
