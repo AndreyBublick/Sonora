@@ -1,6 +1,6 @@
 import type {ButtonAsButton, ButtonAsLink, UiButtonProps} from "./ui-button.props";
 import {clsx} from "clsx";
-import styles from './ui-button.module.css'
+import styles from './ui-button.module.scss'
 import Link from "next/link";
 import {Slot} from "@radix-ui/react-slot";
 

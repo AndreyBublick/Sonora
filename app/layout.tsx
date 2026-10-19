@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./bootstrap-utils.scss";
-import "./globals.css";
+import "./globals.scss";
 import {ReactNode} from "react";
 import {QueryProvider, RouterProvider} from "@/src/app/providers";
 import {Toaster} from "sonner";

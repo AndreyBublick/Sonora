@@ -3,7 +3,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import {SidebarContent} from "./sidebar-content";
 import type {SidebarProps} from "./sidebar.props";
-import styles from "./sidebar.module.css";
+import styles from "./sidebar.module.scss";
 import {useState} from "react";
 import {UiButton} from "@/src/shared/ui";
 import {TextAlignJustifyIcon} from "@radix-ui/react-icons";

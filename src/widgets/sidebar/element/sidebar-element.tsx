@@ -2,7 +2,7 @@
 import type {SidebarElementProps} from "./sidebar-element.props";
 import {usePathname} from "next/navigation";
 import {clsx} from "clsx";
-import style from "./sidebar-element.module.css";
+import style from "./sidebar-element.module.scss";
 import Link from "next/link";
 
 
