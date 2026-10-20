@@ -8,9 +8,9 @@ export const HomePage = ({}) => {
     return (
         <>
             <HeroSection />
-            <WeeklyTopSongsSection />
+          {/*  <WeeklyTopSongsSection />
             <NewReleaseSongsSection />
-            <MoodPlaylistsSection />
+            <MoodPlaylistsSection />*/}
         </>
     );
 

@@ -18,7 +18,7 @@ const links = [
 export const Header = ({ className = "", variant = "default", leftSlot }: HeaderProps) => {
     const { isAuth } = useAuth();
     const isDesktop = useMediaQuery({ minWidth: 1500 });
-   const {isScrolled} = useHeader()
+    const {isScrolled} = useHeader()
 
     const contentHeader =
         variant === "default" ? (

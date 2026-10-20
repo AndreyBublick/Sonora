@@ -3,7 +3,8 @@ import {Header} from "@/src/widgets";
 import {SidebarProvider} from "@/src/app/providers";
 import {ReactNode} from "react";
 import {PageWrapper} from "@/src/shared/ui";
-import {SearchInput, type SearchScopeConfig, } from "@/src/features/search";
+import {SearchInput, type SearchScopeConfig,} from "@/src/features/search";
+import {MobileSidebar} from "@/src/widgets/sidebar";
 
 export default function WithSidebarLayout({ children }: { children: ReactNode }) {
 
@@ -14,8 +15,11 @@ export default function WithSidebarLayout({ children }: { children: ReactNode })
         fetch: (q, s) => Promise.resolve([]) /*getSearchArtists(q, s)*/,
     };
 
-    const leftSlot =  <div style={{maxWidth: 430}}>
+    const leftSlot = <div className={`d-flex align-items-center`}>
+    <MobileSidebar />
+    <div style={{maxWidth: 430}}>
         <SearchInput config={config} />
+    </div>
     </div>
 
     return (
