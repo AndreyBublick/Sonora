@@ -11,10 +11,6 @@ export const TracksSection = ({ title, queryTrackParams }: TracksSectionProps) =
     const { data, isLoading } = useTracks(queryTrackParams);
 
     const items = useMemo(() => mapTracksData(data), [data]);
-//todo вынести
-    if (!isLoading && (!data || data?.data.length === 0)) {
-        return null;
-    }
 
     return (
         <CarouselSection

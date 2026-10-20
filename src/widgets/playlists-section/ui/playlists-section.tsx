@@ -12,10 +12,6 @@ export const PlaylistsSection = ({ title, queryPlaylistParams }: PlaylistsSectio
 
     const items = useMemo(() => mapPlaylistsData(data), [data]);
 
-    if (!isLoading && items.length === 0) {
-        return null;
-    }
-//todo вынести
     return (
         <CarouselSection
             schema={{media:true, title:true}}
@@ -28,10 +24,6 @@ export const PlaylistsSection = ({ title, queryPlaylistParams }: PlaylistsSectio
                     type={'image'}
                     title={playlist.title}
                     src={playlist.src}
-                    /*meta={{
-                        creatorName: playlist.creatorName || "Unknown",
-                        likes: `${playlist.likesCount} likes`
-                    }}*/
                 />
             )}
         />

@@ -6,12 +6,14 @@ import {tokenStorage} from "@/src/shared/lib";
 export const useMe = () => {
     const hasToken = !!tokenStorage.getAccess();
 
-    return { data: null, isLoading:true, isError:true } /*useQuery({
+    /*useQuery({
         queryKey: ["me"],
         queryFn: getMe,
         enabled: hasToken,
         staleTime: 5 * 60_000,
         retry: false,
         meta: { skipToast: true },
-    });*/
+    });*/ {/*NetWork*/}
+
+    return { data: null, isLoading:true, isError:true }
 };
