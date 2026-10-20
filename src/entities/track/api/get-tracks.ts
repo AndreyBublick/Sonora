@@ -1,7 +1,7 @@
-
-import {ListResponse, request} from "@/src/shared/api";
+import {request} from "@/src/shared/api";
 import {Track} from "../model/types";
 import {GetTracksParams} from "./types";
+import {ListResponse} from "@/src/shared/api/types";
 
 export const getTracks = (params: GetTracksParams = {}): Promise<ListResponse<Track>> =>
     request<ListResponse<Track>>({

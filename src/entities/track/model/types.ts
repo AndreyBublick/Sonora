@@ -1,11 +1,4 @@
-
-export type TrackImage = {
-    type: "thumbnail" | 'original' | 'medium';
-    width: number;
-    height: number;
-    fileSize: number;
-    url: string;
-};
+import {BaseMediaAttributes} from "@/src/shared/api/types";
 
 export type TrackAttachment = {
     id: string;
@@ -18,25 +11,13 @@ export type TrackAttachment = {
     fileSize: number;
 };
 
-export type TrackUser = {
-    id: string;
-    name: string;
-};
-
 export type Track = {
     id: string;
     type: "tracks";
-    attributes: {
-        title: string;
-        addedAt: string;
-        likesCount: number;
-        duration: number;
-        currentUserReaction: number;
+    attributes: BaseMediaAttributes & {
         isPublished: boolean;
         publishedAt?: string;
         attachments?: TrackAttachment[];
-        images?: { main: TrackImage[] };
-        user?: TrackUser;
     };
     relationships?: {
         artists?: {

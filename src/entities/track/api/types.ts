@@ -1,25 +1,12 @@
+import {BaseListParams} from "@/src/shared/api/types";
+
 export type TracksSortBy = "publishedAt" | "likesCount";
-export type TracksSortDirection = "asc" | "desc";
 export type TracksPaginationType = "offset" | "cursor";
 
-export type GetTracksParams = {
-    pageNumber?: number;
-    pageSize?: number;           // 0–20, default: 20
-    search?: string;
-    sortBy?: TracksSortBy;       // default: "publishedAt"
-    sortDirection?: TracksSortDirection; // default: "desc"
-    tagIds?: string[];
+export type GetTracksParams = BaseListParams & {
+    sortBy?: TracksSortBy;
     artistIds?: string[];
-    userId?: string;
     includeDrafts?: boolean;
-    onlyLikedByMe?: boolean;
-    paginationType?: TracksPaginationType; // default: "offset"
+    paginationType?: TracksPaginationType;
     cursor?: string;
 };
-
-export type MutateResponse = {
-    objectId: string,
-    value: number,
-    likes: number,
-    dislikes: number
-}
