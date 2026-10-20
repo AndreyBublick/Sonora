@@ -21,14 +21,14 @@ export const MediaCardSkeleton = ({schema, shape = "square"}:Props) => {
                 {schema.media && <MediaCard.MediaElement type={'other'}>
                         <Skeleton
                             className={shapeClass}
-                            style={{ width: "100%", aspectRatio: "1 / 1" }}
+                            style={{ width: "100%", aspectRatio: "1.095 / 1" }}
                         />
                 </MediaCard.MediaElement>}
 
-                {schema.title && <Skeleton className={`rounded-1`} style={{ width: "80%", height: 16 }} />}
+                {schema.title && <Skeleton className={`rounded-1`} style={{ width: "80%", height: 16, margin:'4px 0px' }} />}
 
                 {schema.meta && META_WIDTHS[schema.meta] && (
-                    <div className="d-flex justify-content-between gap-2 mt-3">
+                    <div className="d-flex justify-content-between gap-2 mt-2">
                         {META_WIDTHS[schema.meta].map((width, i) => (
                             <Skeleton
                                 key={i}

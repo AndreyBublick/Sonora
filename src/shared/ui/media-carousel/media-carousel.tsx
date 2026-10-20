@@ -46,7 +46,7 @@ export const MediaCarousel = <T,>({
                 <div
                     style={{
                         display: "flex",
-                        gap: 16,
+                        gap: 12,
                         userSelect: "none",
                         touchAction: "pan-y pinch-zoom",
                         cursor: isDragging ? 'grabbing' : 'grab',

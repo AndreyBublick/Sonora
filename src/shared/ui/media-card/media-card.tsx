@@ -38,6 +38,11 @@ const MediaElement = (props: MediaElementProps) => {
 
     };
 
+    const renderPlaceholder = ()=>{
+
+        return mediaPlaceholder ? <div className={shapeClass} style={style}>{mediaPlaceholder}</div> : null
+    }
+
     const renderers: Record<"image" | "audio" | "video" | "other", () => ReactNode> = {
 
         audio: () =>
@@ -66,7 +71,7 @@ const MediaElement = (props: MediaElementProps) => {
                     className={shapeClass}
                     style={style}
                 />
-            ) : null,
+            ) : renderPlaceholder(),
 
         video: () =>
             props.type === "video" && props.src ? (
@@ -80,7 +85,7 @@ const MediaElement = (props: MediaElementProps) => {
                     className={shapeClass}
                     style={style}
                 />
-            ) : null,
+            ) : renderPlaceholder(),
 
         other: () => ((props.type === 'other' )  ? <div  className={shapeClass}
                                                                                     style={style}>
@@ -98,7 +103,7 @@ const MediaElement = (props: MediaElementProps) => {
     return (
         <div className="position-relative overflow-hidden" style={{
             width: "100%",
-            aspectRatio: "1 / 1",
+            aspectRatio: "1.095 / 1",
         }}>
             <div className={`${shapeClass} position-absolute`} style={{ inset:0, background:'var(--gray-600)'}}>
                 <Skeleton className={'w-100 h-100'} />
