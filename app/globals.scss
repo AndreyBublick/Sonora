@@ -19,6 +19,7 @@
   --gray-900: #181818;
 
 
+
   /* Accents main */
   --accent-100:         #FDE7F7;
   --accent-200:   #FCDBF3;
@@ -76,9 +77,11 @@
   --gray-300: #898989;
   --gray-400: #404040;
   --gray-500: #3c3a3a;
-  --gray-600: #1f1f1f;
-  --gray-700: #1e1e1e;
-  --gray-800: #181818;
+  --gray-600: #2d2d2d;
+  --gray-700: #1f1f1f;
+  --gray-800: #1e1e1e;
+  --gray-900: #181818;
+
 
  /* --accent:              #EE10B0;
   --accent-hover:        #FF2BC2;
@@ -181,5 +184,6 @@ body {
   flex-direction: column;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--gray-900);
   font-family: 'Inter', system-ui, sans-serif;
 }
