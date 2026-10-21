@@ -15,11 +15,9 @@ export default function WithSidebarLayout({ children }: { children: ReactNode })
         fetch: (q, s) => Promise.resolve([]) /*getSearchArtists(q, s)*/,
     };
 
-    const leftSlot = <div className={`d-flex align-items-center`}>
+    const leftSlot = <div style={{maxWidth: 430}} className={`d-flex align-items-center`}>
     <MobileSidebar />
-    <div style={{maxWidth: 430}}>
         <SearchInput config={config} />
-    </div>
     </div>
 
     return (
