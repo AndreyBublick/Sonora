@@ -107,7 +107,7 @@ const Input = forwardRef<HTMLInputElement, UiInputProps>(
                 e.preventDefault();
                 innerRef.current?.focus();
             }}>
-                {label && (<>{label}</>)}
+                {label && (<span style={{pointerEvents:'none'}}>{label}</span>)}
 
                 <div
                     className={clsx(
