@@ -19,8 +19,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
             </RouterProvider>
         </QueryProvider>
-        <Toaster richColors position="top-right" />
-        </body>
+        <Toaster
+            richColors
+            position="top-right"
+            theme="dark"
+            style={{}}
+            offset={{ top: '100px', right: '16px' }}
+        />        </body>
         </html>
     );
 }
