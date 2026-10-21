@@ -90,7 +90,7 @@ const MediaElement = (props: MediaElementProps) => {
         other: () => ((props.type === 'other' )  ? <div  className={shapeClass}
                                                                                     style={style}>
             <div style={{
-                background:'var(--gray-800)'
+                background:'var(--gray-900)'
             }} className={'d-flex justify-content-center align-items-center h-100'}>
 
             {children}
