@@ -1,18 +1,15 @@
-import type { ReactNode } from 'react';
-import {RegisterOptions} from "react-hook-form";
-
-export type AuthField = {
-    type: 'text' | 'email' | 'password';
-    name: string;
-    label: string;
-    placeholder?: string;
-    required?: boolean;
-    autoComplete?: string;
-    minLength?: number;
-    rules?: RegisterOptions<Record<string, string>, string>;
-};
+import type {ComponentProps, CSSProperties, ReactNode} from 'react';
+import {AuthField} from "../../model";
+import {AuthFormFooter} from "../auth-form-footer";
 
 export type AuthFormProps = {
+    defaultRememberMe?:boolean,
+    errorMessage?:string,
+    className?:string,
+    slotClassName?:string,
+    style?:CSSProperties,
+    inputWrapperStyle?:CSSProperties,
+    inputStyle?:CSSProperties,
     isShowRemember?:boolean;
     isError?:boolean;
     isDisabled?:boolean;
@@ -28,6 +25,8 @@ export type AuthFormProps = {
     loading?: boolean;
     error?: string | null;
     onSubmit: (data: Record<string, string | boolean>) => void;
-
-
+    footerProps?: Omit<
+        ComponentProps<typeof AuthFormFooter>,
+        'isDisabled' | 'isLoading'
+    >;
 };

@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import {CSSProperties, useState} from 'react';
 import {SubmitHandler, useForm, UseFormRegister} from 'react-hook-form';
-import { UiButton, UiInput } from '@/src/shared/ui';
-import type { AuthField, AuthFormProps } from './auth-form.props';
-import { RememberMe } from './remember-me';
-import { AvatarIcon } from '@radix-ui/react-icons';
+import {UiInput} from '@/src/shared/ui';
+import type {AuthFormProps} from './auth-form.props';
+import {RememberMe} from './remember-me';
+import {AuthField} from "../../model";
+import {AuthFormFooter} from "../auth-form-footer";
+import {clsx} from "clsx";
 
 export const AuthForm = ({
                              title,
@@ -16,6 +18,14 @@ export const AuthForm = ({
                              onSubmit,
                              isShowRemember = false,
                              isDisabled = false,
+                             slotClassName='',
+                             isError=false,
+                             inputStyle={},
+                             style={},
+                             className='',
+                             errorMessage='',
+                             inputWrapperStyle={},
+                             footerProps={},
                          }: AuthFormProps) => {
     const [isRememberMe, setIsRememberMe] = useState(false);
 
@@ -34,10 +44,10 @@ export const AuthForm = ({
     return (
         <form
             onSubmit={handleSubmit(onSubmitHandler)}
-            className="p-5 w-100 rounded-4 mx-3"
-            style={{ maxWidth: 500, background: 'var(--surface-1000)' }}
+            className={clsx("", className)}
+            style={{ ...style }}
         >
-            <h1 className="text-center fs-2 fw-semibold mb-3">{title}</h1>
+            {title && <h1 className="text-center fs-2 fw-semibold mb-3">{title}</h1>}
 
             <div className="d-flex flex-column gap-3">
                 {fields.map((field) => (
@@ -46,6 +56,8 @@ export const AuthForm = ({
                         field={field}
                         register={register}
                         error={errors[field.name]?.message}
+                        inputWrapperStyle={inputWrapperStyle}
+                        inputStyle={inputStyle}
                     />
                 ))}
             </div>
@@ -54,31 +66,19 @@ export const AuthForm = ({
                 <RememberMe isRemember={isRememberMe} setIsRemember={setIsRememberMe} />
             )}
 
-            {slot && <div className="mt-4">{slot}</div>}
+            {isError && !!errorMessage && (
+                <div className="text-danger small mt-3 text-center">
+                    {errorMessage}
+                </div>
+            )}
 
-            <UiButton
-                type="submit"
-                disabled={isDisabled || loading}
-                className="fs-5 w-100 py-2 mt-5 fw-medium"
-            >
-                {loading ? 'Registration...' : submitLabel}
-            </UiButton>
+            {slot && (
+                <div key={isError ? 'error' : 'idle'} className={slotClassName || "mt-4"}>
+                    {slot}
+                </div>
+            )}
 
-            <div className="my-2 text-center align-items-center d-flex gap-2 justify-content-between">
-                <hr className="w-100" />
-                <span style={{ lineHeight: 1 }}>or</span>
-                <hr className="w-100" />
-            </div>
-
-            <UiButton
-                className="text-center py-2 fs-5 gap-2 align-items-center justify-content-center d-flex"
-                variant="secondary"
-                as="link"
-                href={`${process.env.NEXT_PUBLIC_API_URL}/auth/oauth-redirect`}
-            >
-                <AvatarIcon width={26} height={26} />
-                <span>Keycloak</span>
-            </UiButton>
+            <AuthFormFooter {...footerProps} isDisabled={isDisabled} isLoading={loading} />
         </form>
     );
 };
@@ -87,21 +87,26 @@ const AuthFieldRenderer = ({
                                field,
                                register,
                                error,
+                               inputWrapperStyle={},
+                               inputStyle={},
                            }: {
     field: AuthField;
     register: UseFormRegister<Record<string, string>>;
     error?: string;
+    inputWrapperStyle?:CSSProperties
+    inputStyle?:CSSProperties
 }) => {
     return (
         <div className="d-flex flex-column gap-1">
             <UiInput
                 id={field.name}
                 label={<UiInput.Label className="mb-1">{field.label}</UiInput.Label>}
-                className="rounded-1"
-                style={{
-                    backgroundColor: 'var(--surface-900)',
-                    border: '0.5px solid var(--surface-700)',
-                }}
+                className=""
+                styleWrapper={inputWrapperStyle}
+                style={inputStyle}
+                iconStart={field.icon && <UiInput.Icon className={`ms-2`} style={{position:'relative',top:'-1px',}}>
+                    {field.icon}
+                </UiInput.Icon>}
                 type={field.type}
                 placeholder={field.placeholder}
                 autoComplete={field.autoComplete}

@@ -71,12 +71,15 @@ const Input = forwardRef<HTMLInputElement, UiInputProps>(
             id,
             type,
             style={},
+            styleWrapper={},
             ...rest
         },
         forwardedRef,
     ) => {
         const innerRef = useRef<HTMLInputElement>(null);
+        const inputWrapperRef = useRef<HTMLInputElement>(null);
         const mergedRef = composeRefs(innerRef, forwardedRef);
+        const labelRef = useRef<HTMLSpanElement>(null);
         const [isPasswordHidden, setIsPasswordHidden] = useState(true)
         const defaultId = useId();
         const inputId = id ?? defaultId;
@@ -101,26 +104,41 @@ const Input = forwardRef<HTMLInputElement, UiInputProps>(
 
         return (
             <UiInputContext.Provider value={context}>
-            <div className={clsx(styles.field, classNameWrapper)} onMouseDown={(e) => {
-                if (e.target === innerRef.current) return;
-                if ((e.target as HTMLElement).closest("button, a, [data-no-focus]")) return;
+            <div className={clsx(styles.field)} onMouseDown={(e) => {
+
+                const target = e.target as HTMLElement;
+
+                if (target === innerRef.current) return;
+
+                const isInputAreaClick = inputWrapperRef.current?.contains(target);
+                const isLabelClick = labelRef.current?.contains(target);
+
+                if (!isInputAreaClick && !isLabelClick) return;
+
+                if (target.closest("button, a, [data-no-focus]")) return;
+
                 e.preventDefault();
+                if (document.activeElement === innerRef.current) return;
                 innerRef.current?.focus();
             }}>
-                {label && (<span style={{pointerEvents:'none'}}>{label}</span>)}
+                {label && (<div className={`d-inline-flex`}><span ref={labelRef} style={{}}>{label}</span></div>)}
 
                 <div
+                    ref={inputWrapperRef}
+                    style={{...styleWrapper}}
                     className={clsx(
+                        `rounded-1`,
                         styles.wrapper,
                         styles[variant],
                         isInvalid && styles.invalid,
+                        classNameWrapper
                     )}
                 >
-                    {iconStart && <span className={styles.iconStart}>{iconStart}</span>}
+                    {iconStart && <span  className={styles.iconStart}>{iconStart}</span>}
                     <input
                         ref={mergedRef}
                         id={inputId}
-                        className={clsx(className, styles.input,styles[type||'text']) }
+                        className={clsx(`rounded-1`, className, styles.input,styles[type||'text']) }
                         aria-invalid={isInvalid}
                         aria-describedby={describedBy}
                         type={ isPasswordHidden ? type : 'text' }

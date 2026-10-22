@@ -9,12 +9,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  border-radius: 100px;
   //border: 1px solid var(--color-border, #333);
-  outline: 1px solid transparent;
-  border-radius: 6px;
+  outline: var(--custom-outline-width, 1px) solid var(--custom-outline-color, transparent);
   background: transparent;
   transition: outline-color 0.15s ease, background 0.15s ease;
   position: relative;
+
 }
 
 .wrapper:focus-within {
@@ -22,12 +23,9 @@
 }
 
 /* Variants */
-.default {
-  border-radius: 6px;
-}
 
 .search {
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 6px 8px;
   background: var(--gray-700);
   border-color: transparent;

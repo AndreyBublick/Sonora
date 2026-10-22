@@ -18,6 +18,7 @@ export type UiInputProps = {
     iconEnd?: ReactNode;
     variant?: UiInputVariant;
     classNameWrapper?:string
+    styleWrapper?:CSSProperties
 } & ComponentProps<"input">;
 
 export type UiInputIconProps = UiInputBaseProps & {
