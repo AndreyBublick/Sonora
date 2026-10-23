@@ -5,11 +5,16 @@
     color: var(--color, inherit);
 }
 
+.common:not(:disabled):hover{
+    color: var(--hover-color, inherit);
+    opacity: 0.75;
+}
+
 .primary{
 background-color: var(--accent-400);
 }
 
-.primary:hover{
+.primary:not(:disabled):hover{
     background-color: var(--accent-500);
 }
 .primary:active{
@@ -27,7 +32,7 @@ background-color: var(--accent-400);
     color: var(--accent-400);
 }
 
-.outline-primary:hover{
+.outline-primary:not(:disabled):hover{
     border-color:  var(--accent-500);
     color: var(--accent-500);
 
@@ -42,7 +47,7 @@ background-color: var(--accent-400);
     background-color: var(--accent-second-400);
 }
 
-.secondary:hover{
+.secondary:not(:disabled):hover{
     background-color: var(--accent-second-500);
 }
 .secondary:active{
@@ -55,7 +60,7 @@ background-color: var(--accent-400);
     color: var(--accent-second-400);
 }
 
-.outline-secondary:hover{
+.outline-secondary:not(:disabled):hover{
     border-color:  var(--accent-second-500);
     color: var(--accent-second-500);
 
@@ -65,17 +70,10 @@ background-color: var(--accent-400);
     color: var(--accent-second-600);
 }
 
-.text:hover{
-    opacity: 0.75;
-}
 
 .text:active{
     opacity: 0.5;
 }
 
-.common:hover{
-    color: var(--hover-color, inherit);
-    opacity: 0.75;
-}
 
 /*variant?: 'text' | 'primary' | 'secondary' | 'outline-primary' | 'outline-secondary';*/
