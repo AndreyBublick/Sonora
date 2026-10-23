@@ -11,7 +11,7 @@ export const HeroSection = ({}: HeroSectionProps) => {
     
     return (
         <section className={`rounded-4 position-relative d-flex align-items-center`} style={{
-            marginTop:'-64px',
+            marginTop:'-76px',
             minHeight:'31.00vw',
             overflow:'hidden',
             marginBottom: isMobile ? 40 : 64,
