@@ -39,8 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+AGENTS.md
 /.idea/
 /.proxyai/
 /.clinerules/
+/.agent-docs/
 
 .clineignore*
