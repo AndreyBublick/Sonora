@@ -3,11 +3,10 @@ import type {HeaderProps} from "./header.props";
 import {clsx} from "clsx";
 import {UiButton} from "@/src/shared/ui";
 import Link from "next/link";
-import {useMediaQuery} from "@/src/shared/lib";
 import {AvatarChip} from "./avatar-chip";
 import {useAuth} from "@/src/entities/session";
 import styles from "./header.module.scss";
-import {useHeader} from "@/src/widgets/header/lib";
+import {useHeader} from "../header/lib";
 
 const links = [
     { title: "About Us", href: "/about_us" },
@@ -17,7 +16,6 @@ const links = [
 
 export const Header = ({ className = "", variant = "default", leftSlot }: HeaderProps) => {
     const { isAuth } = useAuth();
-    const isDesktop = useMediaQuery({ minWidth: 1500 });
     const {isScrolled} = useHeader()
 
     const contentHeader =
@@ -28,8 +26,7 @@ export const Header = ({ className = "", variant = "default", leftSlot }: Header
                 </div>
 
                 <div
-                    className="d-flex align-items-center justify-content-between gap-3"
-                    style={isDesktop ? { width: "100%", maxWidth: "28.5vw" } : {}}
+                    className={`d-flex align-items-center justify-content-between gap-3 ${styles['nav-wrapper']}`}
                 >
                     <ul
                         className="d-none d-lg-flex align-items-center justify-content-around flex-grow-1 gap-3 mb-0"
