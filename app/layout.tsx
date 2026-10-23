@@ -4,6 +4,7 @@ import "./globals.scss";
 import {ReactNode} from "react";
 import {QueryProvider, RouterProvider} from "@/src/app/providers";
 import {Toaster} from "sonner";
+import {Footer} from "@/src/widgets";
 
 export const metadata: Metadata = {
     title: "Sonora",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <QueryProvider>
             <RouterProvider>
         {children}
+                <Footer />
             </RouterProvider>
         </QueryProvider>
         <Toaster
