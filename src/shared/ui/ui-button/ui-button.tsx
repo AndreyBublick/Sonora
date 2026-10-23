@@ -24,6 +24,6 @@ export const UiButton = ({as='button', asChild=false, variant='primary', classNa
 
 
      const { type = 'button', ...buttonProps } = rest as ButtonAsButton;
-    return <button type={type} className={commonStyles} {...buttonProps}>{children}</button>;
+        return <button type={type} className={commonStyles} {...buttonProps}>{children}</button>;
 
 };

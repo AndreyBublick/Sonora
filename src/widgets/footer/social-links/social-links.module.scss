@@ -1,0 +1,33 @@
+.social-link-stack {
+  position: relative;
+  display: inline-flex;
+}
+
+.social-link-layer {
+  display: inline-flex;
+  transition: opacity 0.2s linear;
+}
+
+.social-link-layer-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  svg [fill="currentColor"] {
+    fill: var(--hover-gradient-fill);
+  }
+  svg [stroke="currentColor"] {
+    stroke: var(--hover-gradient-fill);
+  }
+}
+
+.social-link-gradient:hover,
+.social-link-gradient:focus-visible {
+  .social-link-layer:not(.social-link-layer-hover) {
+    opacity: 0;
+  }
+  .social-link-layer-hover {
+    opacity: 1;
+  }
+}

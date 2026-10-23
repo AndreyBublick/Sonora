@@ -1,7 +1,7 @@
 import {AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode} from "react";
 
 type BaseProps = {
-    variant?: 'text' | 'primary' | 'secondary' | 'outline-primary' | 'outline-secondary';
+    variant?: 'default' | 'text' | 'primary' | 'secondary' | 'outline-primary' | 'outline-secondary';
     children: ReactNode;
     className?: string;
 };
