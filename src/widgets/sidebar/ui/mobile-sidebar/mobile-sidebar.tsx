@@ -1,3 +1,4 @@
+'use client'
 import type {MobileSidebarProps} from "./mobile-sidebar.props";
 import {useState} from "react";
 import {Logo, UiButton} from "@/src/shared/ui";

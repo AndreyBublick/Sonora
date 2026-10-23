@@ -10,7 +10,7 @@ export const Sidebar = ({logo, sidebarData}: SidebarProps) => {
             <aside
                 className={`d-none d-lg-block pe-3 pt-5 pb-3`}
                 style={{
-                    width: 400,
+                    minWidth: 270,
                     paddingLeft: 64,
                     borderRight: "2px solid var(--gray-600)",
                     minHeight: "100%",

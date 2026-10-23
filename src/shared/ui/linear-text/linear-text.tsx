@@ -5,11 +5,11 @@ import styles from "./linear-text.module.scss";
 
 export const LinearText = ({children, grLeft='var(--accent-400)', grRight=`var(--accent-second-400)`}: LinearTextProps) => {
     return (
-        <div className={clsx(`${styles['wrapper']}`)} style={{
+        <span className={clsx(`${styles['wrapper']}`)} style={{
             backgroundImage: `linear-gradient(to right, ${grLeft} -25%, ${grRight} 200%)`
         }}>
             {children}
-        </div>
+        </span>
     );
 
 };

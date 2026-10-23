@@ -26,7 +26,7 @@ export const JoinForm = () => {
             slotClassName="mt-3"
             footerProps={{
                 separatorClassName: 'my-0',
-                style:{paddingTop:20}
+                style:{paddingTop:12}
             }}
 
             slot={<ReCaptcha theme="dark" onChange={setCaptchaToken} />}
