@@ -3,4 +3,5 @@ export type LogoProps = {
     onClick?:()=>void
     title:string
     href?:string
+    className?:string
 }

@@ -31,7 +31,7 @@ export const MobileSidebar = ({}: MobileSidebarProps) => {
                     <div
                         className={`d-flex align-items-center justify-content-between px-3 py-2 border border-bottom-secondary border-bottom-1`}>
                         <Dialog.Title asChild onClick={() => setOpen(false)}>
-                            <Logo title={'Sonora'} />
+                            <Logo className={'fw-bold'} title={'Sonora'} />
                         </Dialog.Title>
 
                         <Dialog.Close asChild>
