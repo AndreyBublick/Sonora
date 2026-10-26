@@ -6,6 +6,7 @@ export const mapTracksData = (data:  ListResponse<Track> | undefined) => {
     return data.data.flatMap((item) =>
         (item.attributes.attachments ?? []).map((att) => ({
             ...att,
+            id: item.id,
             title: item.attributes.title,
             likesCount: item.attributes.likesCount,
             publishedAt: item.attributes.publishedAt,

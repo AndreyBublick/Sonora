@@ -1,5 +1,5 @@
 import {request} from "@/src/shared/api";
-import {MutateResponse} from "./types";
+import {MutateResponse} from "@/src/shared/api/types";
 
 export const likeTrack = (id: string): Promise<MutateResponse> =>
     request<MutateResponse>({ method: "POST", url: `/playlists/tracks/${id}/likes` });

@@ -1,18 +1,14 @@
-import {MediaCard} from "../media-card";
-import {MediaCardSchema} from "@/src/shared/ui/media-card";
+import {MediaCard} from "../../media-card";
 import {Skeleton} from "@/src/shared/ui";
+import {MediaCardSkeletonProps} from "./media-card-skeleton.props";
 
-type Props = {
-    schema:MediaCardSchema
-    shape?: "square" | "circle"
-}
 const META_WIDTHS: Record<number, (string | number)[]> = {
     1: ["50%"],
     2: ["50%", 40],
     3: ["33%", "33%", "33%"],
 };
 
-export const MediaCardSkeleton = ({schema, shape = "square"}:Props) => {
+export const MediaCardSkeleton = ({schema, shape = "square"}:MediaCardSkeletonProps) => {
     const shapeClass = shape === "circle" ? "rounded-circle" : "rounded-3";
 
     return (

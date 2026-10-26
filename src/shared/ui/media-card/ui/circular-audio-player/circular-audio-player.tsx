@@ -4,13 +4,12 @@ import Image from "next/image";
 import {audioManager} from "../../model/audio-manager";
 import {PauseIcon, PlayIcon} from "@radix-ui/react-icons";
 
-export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia }: CircularAudioPlayerProps) => {
+export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia, size = 50, isCircle=true }: CircularAudioPlayerProps) => {
     const audioRef = useRef<HTMLAudioElement>(null);
     const [playing, setPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
     const [isLoaded, setIsLoaded] = useState(false);
     const [isOver, setIsOver] = useState(false);
-    const size = 50;
     const stroke = 4;
     const r = (size - stroke) / 2;
     const c = 2 * Math.PI * r;
@@ -97,14 +96,14 @@ export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia }: 
                     style={{
                         width: size,
                         height: size,
-                        background: isOver ? "rgba(0,0,0,0.45)" : "rgba(0,0,0,0.0)",
+                        background: isOver && isCircle ? "rgba(0,0,0,0.45)" : "rgba(0,0,0,0.0)",
                         zIndex: 1,
                         transform: showControls ? "scale(1)" : "scale(0.85)",
                         transition: "opacity 0.25s ease, transform 0.25s ease",
                         pointerEvents: showControls ? "auto" : "none",
                     }}
                 >
-                    <svg
+                    {isCircle && <svg
                         width={size}
                         height={size}
                         style={{opacity: isOver ? 1 : 0, position: "absolute", inset: 0, transform: "rotate(-90deg)" }}
@@ -129,18 +128,18 @@ export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia }: 
                             strokeDashoffset={c * (1 - progress)}
                             style={{ transition: "stroke-dashoffset 0.15s linear" }}
                         />
-                    </svg>
+                    </svg>}
 
                     <button
                         type="button"
                         onClick={toggle}
                         className="btn border-0 d-flex justify-content-center align-items-center cursor-pointer"
-                        style={{padding:14, opacity: isOver ? 1 : 0, color: "white", background: "transparent", zIndex: 1 }}
+                        style={{padding: size * 0.28, opacity: isOver ? 1 : 0, color: "white", background: "transparent", zIndex: 1 }}
                     >
                         {!isLoaded && <div className="spinner-border" />}
                         {isLoaded && (playing
-                                ? <PauseIcon width={22} height={22} />
-                                : <PlayIcon width={22} height={22} />
+                                ? <PauseIcon width={size * 0.4} height={size * 0.4} />
+                                : <PlayIcon width={size * 0.4} height={size * 0.4} />
                         )}
                     </button>
                 </div>
