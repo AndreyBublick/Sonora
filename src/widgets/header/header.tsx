@@ -14,7 +14,7 @@ const links = [
     { title: "Premium", href: "/premium" },
 ];
 
-export const Header = ({ className = "", variant = "default", leftSlot }: HeaderProps) => {
+export const Header = ({ className = "", variant = "default", leftSlot, style={} }: HeaderProps) => {
     const { isAuth } = useAuth();
     const {isScrolled} = useHeader()
 
@@ -59,6 +59,7 @@ export const Header = ({ className = "", variant = "default", leftSlot }: Header
 
     return (
         <header
+            style={{...style}}
             className={clsx(
                 styles.header,
                 isScrolled && styles.scrolled,

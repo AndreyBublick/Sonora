@@ -10,8 +10,8 @@ export const HeroSection = ({}: HeroSectionProps) => {
     const isMobile = useMediaQuery({maxWidth:992})
     
     return (
-        <section className={`rounded-4 position-relative d-flex align-items-center`} style={{
-            marginTop:'-76px',
+        <section className={`${isMobile ? 'rounded-3' : 'rounded-4'} position-relative d-flex align-items-center`} style={{
+            marginTop: isMobile ? '-56px' : '-66px',
             minHeight:'31.00vw',
             overflow:'hidden',
             marginBottom: isMobile ? 40 : 64,

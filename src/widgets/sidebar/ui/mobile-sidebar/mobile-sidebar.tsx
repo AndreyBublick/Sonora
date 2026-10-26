@@ -17,7 +17,7 @@ export const MobileSidebar = ({}: MobileSidebarProps) => {
             <Dialog.Trigger asChild>
                 <UiButton variant={'outline-primary'} asChild
                           type="button"
-                          className={`btn btn-link flex-shrink-0 d-lg-none mx-3 my-2 z-3`}
+                          className={`btn btn-link flex-shrink-0 d-lg-none me-3 my-2 z-3`}
                           aria-label="Открыть меню"
                 >
                     <TextAlignJustifyIcon width={42} height={38}/>
