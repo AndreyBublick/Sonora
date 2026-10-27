@@ -187,3 +187,39 @@ body {
   background-color: var(--gray-900);
   font-family: 'Inter', system-ui, sans-serif;
 }
+
+/* Custom scrollbar */
+
+.custom-y-scroll {
+  scrollbar-width: thin;                 /* Firefox */
+  scrollbar-color: var(--surface-700, darkviolet) transparent;
+  scroll-behavior: smooth;
+}
+
+/* WebKit: Chrome / Edge / Safari / Opera */
+.custom-y-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.custom-y-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 999px;
+}
+
+.custom-y-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--surface-700, darkviolet) 55%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.2s ease;
+}
+
+.custom-y-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-700, darkviolet);
+  background-clip: padding-box;
+}
+
+.custom-y-scroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
