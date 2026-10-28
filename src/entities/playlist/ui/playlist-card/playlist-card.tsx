@@ -4,7 +4,7 @@ import {getMediaType} from "@/src/shared/lib/utils";
 
 const TYPE = 'image'
 
-export const PlaylistCard = ({title, type, src}: PlaylistCardProps) => {
+export const PlaylistCard = ({title, type, src, ratio="1.095 / 1"}: PlaylistCardProps) => {
 
     const placeholder = <svg xmlns="http://www.w3.org/2000/svg" width={'70%'} height={'70%'} viewBox="0 0 24 24" fill="none"
              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -21,7 +21,7 @@ export const PlaylistCard = ({title, type, src}: PlaylistCardProps) => {
         return (
             <MediaCard>
                 <MediaCard.Body>
-                    <MediaCard.MediaElement alt={'playlist-cover'} mediaPlaceholder={placeholder} src={src}
+                    <MediaCard.MediaElement ratio={ratio} alt={'playlist-cover'} mediaPlaceholder={placeholder} src={src}
                                             type={TYPE}/>
                     <MediaCard.Title>{title}</MediaCard.Title>
                 </MediaCard.Body>

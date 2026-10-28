@@ -12,6 +12,7 @@ type BaseProps = {
     className?:string
     backgroundColor?:string
     style?:CSSProperties
+    ratio?:string
 }
 
 export type MediaElementProps =

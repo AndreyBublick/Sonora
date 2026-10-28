@@ -11,7 +11,7 @@ const formatDuration = (sec: number | null) => {
     return `${m}:${s.toString().padStart(2, "0")}`;
 };
 
-export const TrackCard = ({title, cover, meta, type, src}: TrackCardProps) => {
+export const TrackCard = ({title, cover, meta, type, src, ratio="1.035 / 1"}: TrackCardProps) => {
 
     const [mediaMeta, setMediaMeta] = useState<Record<string, unknown>>({duration: null})
 
@@ -24,7 +24,7 @@ export const TrackCard = ({title, cover, meta, type, src}: TrackCardProps) => {
         return (
             <MediaCard>
                 <MediaCard.Body>
-                    <MediaCard.MediaElement cover={cover} src={src} type={TYPE} onLoadMedia={setMediaMeta}/>
+                    <MediaCard.MediaElement ratio={ratio} cover={cover} src={src} type={TYPE} onLoadMedia={setMediaMeta}/>
 
                     <MediaCard.Title>{title}</MediaCard.Title>
                     <MediaCard.Meta>

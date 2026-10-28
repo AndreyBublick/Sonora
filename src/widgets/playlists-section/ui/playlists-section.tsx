@@ -11,16 +11,19 @@ export const PlaylistsSection = ({ title, queryPlaylistParams }: PlaylistsSectio
     const { data, isLoading } = usePlaylists(queryPlaylistParams);
 
     const items = useMemo(() => mapPlaylistsData(data), [data]);
+    const ratio = "1.095 / 1"
 
     return (
         <CarouselSection
             schema={{media:true, title:true}}
             isLoading={isLoading}
+            ratio={ratio}
             type={'Playlists'}
             title={title}
             items={items}
             renderItem={(playlist) => (
                 <PlaylistCard
+                    ratio={ratio}
                     type={'image'}
                     title={playlist.title}
                     src={playlist.src}

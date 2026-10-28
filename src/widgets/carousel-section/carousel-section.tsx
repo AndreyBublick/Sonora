@@ -12,6 +12,7 @@ export const CarouselSection = <T,>({
                                         items,
                                         renderItem,
                                         isLoading,
+                                        ratio='1/1',
     schema={media:true,title:true, meta:2}
                                     }: CarouselSectionProps<T>) => {
 
@@ -38,7 +39,7 @@ export const CarouselSection = <T,>({
 
                 <MediaCarousel
                     items={isLoading ? skeletonItems : items} renderItem={isLoading ? ()=>{
-                    return <MediaCardSkeleton schema={schema} />
+                    return <MediaCardSkeleton ratio={ratio} schema={schema} />
                 }  : renderItem} />
 
         </section>

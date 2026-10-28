@@ -8,7 +8,7 @@ import {PlaceholderIcons} from "./placeholder-icons";
 
 
 export const MediaElement = ({
-                                 shape, children, mediaPlaceholder , className='rounded-3', backgroundColor='var(--gray-900)', style:styles={} , ...props
+                                 shape, children, mediaPlaceholder , className='rounded-3', backgroundColor='var(--gray-900)', style:styles={}, ratio='1/1', ...props
                                  }: MediaElementProps) => {
     const type: MediaType = props.type ?? "image";
 
@@ -84,7 +84,7 @@ export const MediaElement = ({
         return (
             <div className="position-relative overflow-hidden" style={{
                 width: "100%",
-                height: "100%"
+                aspectRatio: ratio,
             }}>
                 <div className={`${shapeClass} position-absolute`} style={{ inset:0, background:'var(--gray-600)'}}>
                     <Skeleton className={'w-100 h-100'} />

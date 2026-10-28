@@ -6,4 +6,5 @@ export type TrackCardProps =  {
     meta?:Record<string,unknown>
     type:string
     src:string
+    ratio?:string
 }

@@ -3,7 +3,6 @@
 import type {TrendingSongsSectionProps} from "./trending-songs-section.props";
 import {DataTable} from "@/src/shared/ui/data-table";
 import styles from "./trending-songs-section.module.scss";
-import Image from "next/image";
 import {SectionTitle} from "@/src/shared/ui/section-title";
 import React, {useMemo} from "react";
 import {UiButton} from "@/src/shared/ui";

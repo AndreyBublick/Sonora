@@ -12,4 +12,5 @@ export type CarouselSectionProps<T> = {
     renderItem: (item: T) => ReactNode;
     isLoading?: boolean;
     schema?:MediaCardSchema
+    ratio?:string
 };

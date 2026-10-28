@@ -8,16 +8,16 @@ const META_WIDTHS: Record<number, (string | number)[]> = {
     3: ["33%", "33%", "33%"],
 };
 
-export const MediaCardSkeleton = ({schema, shape = "square"}:MediaCardSkeletonProps) => {
+export const MediaCardSkeleton = ({schema, shape = "square", ratio='1/1'}:MediaCardSkeletonProps) => {
     const shapeClass = shape === "circle" ? "rounded-circle" : "rounded-3";
 
     return (
         <MediaCard>
             <MediaCard.Body>
-                {schema.media && <MediaCard.MediaElement type={'other'}>
+                {schema.media && <MediaCard.MediaElement ratio={ratio} type={'other'}>
                         <Skeleton
                             className={shapeClass}
-                            style={{ width: "100%", aspectRatio: "1.095 / 1" }}
+                            style={{ width: "100%", aspectRatio: ratio }}
                         />
                 </MediaCard.MediaElement>}
 
