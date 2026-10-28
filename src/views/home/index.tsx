@@ -12,7 +12,7 @@ export const HomePage = ({}) => {
         <>
             <HeroSection />
             <TrendingSongsSection />
-            <WeeklyTopSongsSection /> {/*NetWork*/}
+            {/*<WeeklyTopSongsSection />*/} {/*NetWork*/}
             {/*<NewReleaseSongsSection />*/} {/*NetWork*/}
             <OffersSection />
             {/*<MoodPlaylistsSection />*/} {/*NetWork*/}

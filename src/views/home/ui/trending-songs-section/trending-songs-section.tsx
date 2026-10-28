@@ -10,6 +10,7 @@ import {UiButton} from "@/src/shared/ui";
 import {HeartIcon, PlusIcon} from "@radix-ui/react-icons";
 import {useMediaQuery} from "@/src/shared/lib";
 import {mapTracksData, useTracks} from "@/src/entities/track";
+import {MediaElement} from "@/src/shared/ui/media-element";
 
 
 export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
@@ -57,19 +58,16 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
                     {
                         header: isMobile ? title : "",
                         render: (track) => {
-                            const url = track.image?.url
+                            const cover = track.image?.url
+                            const src = track.url
 
                             return <div className={`d-flex gap-3 align-items-center`}>
-                                <div style={{ width: 58, height: 58, borderRadius:5, transform: "scale(1.035)",
-                                }} className={`overflow-hidden position-relative`}>
+                                <div style={{ width: 58, height: 58, borderRadius:5, transform: "scale(1.035)",}}
+                                     className={`overflow-hidden position-relative`}>
 
-                                    {url ? <Image
-                                        src={url}
-                                        fill
-                                        alt={track.title}
-                                        style={{objectFit: "cover" }}
-                                        //todo сделать значок default как в trackCard
-                                    /> : <>777</> }
+                                  <MediaElement sizePlayElement={35} type={'audio'} cover={cover} src={src} backgroundColor={'var(--gray-500)'} className={''} style={{
+                                      borderRadius: 5,
+                                  }} />
                                 </div>
 
                                 <div className={`d-flex flex-column gap-1`}>

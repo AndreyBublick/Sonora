@@ -1,9 +1,6 @@
 import type {CSSProperties, ReactNode} from "react";
-import {MediaElementProps} from "./media-card.props";
 import clsx from "clsx";
-import Image from "next/image";
-import {CircularAudioPlayer} from "./ui/circular-audio-player";
-import {Skeleton} from "@/src/shared/ui";
+import {MediaElement, MediaElementProps} from "@/src/shared/ui/media-element";
 
 export const MediaCard = ({
                   children,
@@ -25,92 +22,8 @@ export const MediaCard = ({
     </div>
 );
 
-const MediaElement = (props: MediaElementProps) => {
-    const { shape = "square", children, mediaPlaceholder } = props;
-    const type = props.type ?? "image";
-
-    const shapeClass = shape === "circle" ? "rounded-circle" : "rounded-3 overflow-hidden";
-    const style: CSSProperties = {
-
-        objectFit: "cover",
-        position:'absolute',
-        inset:0
-
-    };
-
-    const renderPlaceholder = ()=>{
-
-        return mediaPlaceholder ? <div className={shapeClass} style={style}>{mediaPlaceholder}</div> : null
-    }
-
-    const renderers: Record<"image" | "audio" | "video" | "other", () => ReactNode> = {
-
-        audio: () =>
-            (props.type === "audio") && props.src ? ( <div className={shapeClass} style={style}>
-
-                   {/* {props.cover ? <Image
-                        fill
-                        className={shapeClass}
-                        src={props.cover}
-                        alt={'audio-cover'}
-                        style={style}
-                    /> : mediaPlaceholder }*/}
-
-
-                    <CircularAudioPlayer onLoadMedia={props.onLoadMedia} src={props.src} cover={props.cover} fallbackCover={mediaPlaceholder} />
-
-                </div>
-            ) : null,
-
-        image: () =>
-            (props.type === "image" || props.type === undefined ) && props.src ? (
-                <Image
-                    fill
-                    src={props.src}
-                    alt={props.alt}
-                    className={shapeClass}
-                    style={style}
-                />
-            ) : renderPlaceholder(),
-
-        video: () =>
-            props.type === "video" && props.src ? (
-                <video
-                    src={props.src}
-                    poster={props.poster}
-                    autoPlay={props.autoPlay}
-                    muted={props.muted}
-                    loop={props.loop}
-                    controls={props.controls}
-                    className={shapeClass}
-                    style={style}
-                />
-            ) : renderPlaceholder(),
-
-        other: () => ((props.type === 'other' )  ? <div  className={shapeClass}
-                                                                                    style={style}>
-            <div style={{
-                background:'var(--gray-900)'
-            }} className={'d-flex justify-content-center align-items-center h-100'}>
-
-            {children}
-            </div>
-
-        </div> : null),
-    };
-
-
-    return (
-        <div className="position-relative overflow-hidden" style={{
-            width: "100%",
-            aspectRatio: "1.095 / 1",
-        }}>
-            <div className={`${shapeClass} position-absolute`} style={{ inset:0, background:'var(--gray-600)'}}>
-                <Skeleton className={'w-100 h-100'} />
-            </div>
-            {renderers[type]()}
-        </div>
-    );
+const MediaCardElement = (props: MediaElementProps) => {
+        return <MediaElement {...props} />;
 };
 
 
@@ -146,7 +59,7 @@ const Meta = ({ children }: { children: ReactNode }) => (
 );
 
 
-MediaCard.MediaElement = MediaElement;
+MediaCard.MediaElement = MediaCardElement;
 MediaCard.Actions = Actions;
 MediaCard.Body = Body;
 MediaCard.Title = Title;

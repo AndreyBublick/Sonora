@@ -16,7 +16,7 @@ export const PricingCard = ({
     return (
         <article
             className={clsx(
-                "d-flex flex-column h-100 p-4 rounded-4 position-relative",
+                "d-flex flex-column h-100 p-4 rounded-3 position-relative",
                 isPrimary && styles["gradient-outline-primary"],
                 className
             )}
