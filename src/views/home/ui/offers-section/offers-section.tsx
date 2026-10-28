@@ -56,8 +56,10 @@ export const OffersSection = () => {
         <section className={``} style={{marginBottom:64}}>
             <div className="container px-0">
                 <SectionTitle className="text-center mb-4">
-                    Our{" "}
-                    <span style={{ color: "var(--accent-400)" }}>Premium</span>{" "}
+                    Our
+                    <SectionTitle.Label>
+                        Premium
+                    </SectionTitle.Label>{" "}
                     Offers
                 </SectionTitle>
 

@@ -6,3 +6,9 @@ export type SectionTitleProps = {
     className?:string
     style?:CSSProperties
 }
+
+export type SectionTitleLabelProps = {
+    children:ReactNode
+    className?:string
+    style?:CSSProperties
+}
