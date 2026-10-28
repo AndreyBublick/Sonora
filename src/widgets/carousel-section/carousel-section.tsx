@@ -32,9 +32,7 @@ export const CarouselSection = <T,>({
         }}>
             <SectionTitle className={`mb-3`} style={{lineHeight:1.375}}>
                 {title}
-                {type && (
-                    <span style={{ color: "var(--accent-400)" }}>{' '}{type}</span>
-                )}
+                {type && (<SectionTitle.Label>{type}</SectionTitle.Label>)}
             </SectionTitle>
 
 

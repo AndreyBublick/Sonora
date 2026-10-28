@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" data-bs-theme="dark">
-        <body style={{ minHeight: "100dvh" }}>
+        <body style={{ minHeight: "100dvh", overflowX:"hidden" }}>
         <QueryProvider>
             <RouterProvider>
         {children}

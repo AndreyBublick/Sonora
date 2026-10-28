@@ -74,7 +74,6 @@ const socials = [
 export const Footer = () => {
     return (
         <footer
-            className="d-flex align-items-center justify-content-center"
             style={{
                 padding: "32px 0px",
                 backgroundColor: "var(--gray-800)",
@@ -85,11 +84,18 @@ export const Footer = () => {
                  style={{ maxWidth: 1200, margin: "0 auto" }}
             >
                 <div
-                    className="d-flex justify-content-between align-items-start"
+                    style={{
+                        gap:36,
+                    }}
+                    className="d-flex justify-content-between align-items-start flex-wrap justify-content-center align-items-center"
                 >
                     {/* About */}
-                    <div style={{ flex: "0 0 30%",  }}>
-                        <h2 className="fw-bolder mb-1" style={{paddingTop:40, fontSize: 26}}>About</h2>
+                        <div style={{ flex: "1 1 320px", minWidth: 0 }}>
+
+                        <h2 className="fw-bolder mb-1" style={{
+                            minWidth: 260,
+                            paddingTop:40,
+                            fontSize: 26}}>About</h2>
                         <p
                             className="mb-0"
                             style={{
@@ -118,14 +124,14 @@ export const Footer = () => {
                         </p>
                     </div>
 
-                    <div className={`flex-1 d-flex gap-4`}>
+                    <div style={{flex:'1 1 auto'}} className={`d-flex justify-content-center gap-4`}>
                         <FooterNavColumn title="Melodies" links={navLinks.melodies} />
                         <FooterNavColumn title="Access" links={navLinks.access} />
                         <FooterNavColumn title="Contact" links={navLinks.contact} />
                     </div>
 
                     {/* Logo + Socials */}
-                    <div style={{ minWidth: 242, alignSelf: "center" }}>
+                        <div style={{ flex: "0 1 242px", minWidth: 0,  alignSelf: "center", margin: '0 auto' }}>
                         <div className="mb-5 text-center">
                             <Logo className={`${styles['logo']}`} title={'Sonora'} />
                         </div>
