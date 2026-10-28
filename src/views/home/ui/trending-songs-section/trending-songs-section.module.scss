@@ -1,0 +1,27 @@
+
+.trending-songs-table {}
+
+.trending-songs-table tbody > tr > td:not(:first-child) {
+  background: var(--gray-800);
+  transition: background 0.2s ease;
+}
+
+.trending-songs-table tbody > tr > td:first-child + td {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.trending-songs-table tbody > tr > td:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.trending-songs-table tbody > tr:hover > td:not(:first-child) {
+  background: var(--gray-600);
+}
+
+.trending-songs-table thead th:last-child{
+  text-align: end;
+  padding-right: 20px;
+}
+

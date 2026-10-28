@@ -5,14 +5,14 @@ import {NewReleaseSongsSection} from "./ui/new-release-songs-section";
 import {MoodPlaylistsSection} from "./ui/mood-playlists-section";
 import {JoinOurPlatformSection} from "./ui/join-our-platform-section";
 import {OffersSection} from "./ui/offers-section";
-import {TrendingSongs} from "./ui/trending-songs";
+import {TrendingSongsSection} from "./ui/trending-songs-section";
 
 export const HomePage = ({}) => {
     return (
         <>
             <HeroSection />
-            <TrendingSongs />
-            {/*<WeeklyTopSongsSection />*/} {/*NetWork*/}
+            <TrendingSongsSection />
+            <WeeklyTopSongsSection /> {/*NetWork*/}
             {/*<NewReleaseSongsSection />*/} {/*NetWork*/}
             <OffersSection />
             {/*<MoodPlaylistsSection />*/} {/*NetWork*/}
