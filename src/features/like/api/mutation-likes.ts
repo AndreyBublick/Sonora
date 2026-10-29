@@ -7,5 +7,8 @@ export const likeTrack = (id: string): Promise<MutateResponse> =>
 export const dislikeTrack = (id: string): Promise<MutateResponse> =>
     request<MutateResponse>({ method: "POST", url: `/playlists/tracks/${id}/dislikes` });
 
-export const removeTrack = (id: string): Promise<MutateResponse> =>
-    request<MutateResponse>({ method: "DELETE", url: `/playlists/tracks/${id}/reactions` });
+export const likePlaylist = (id: string): Promise<MutateResponse> =>
+    request<MutateResponse>({ method: "POST", url: `/playlists/${id}/likes` });
+
+export const dislikePlaylist = (id: string): Promise<MutateResponse> =>
+    request<MutateResponse>({ method: "POST", url: `/playlists/${id}/dislikes` });

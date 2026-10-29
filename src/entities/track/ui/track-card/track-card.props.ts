@@ -7,4 +7,7 @@ export type TrackCardProps =  {
     type:string
     src:string
     ratio?:string
+    trackId: string
+    liked?: boolean
+    likesCount?: number
 }

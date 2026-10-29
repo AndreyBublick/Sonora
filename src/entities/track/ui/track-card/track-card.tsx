@@ -1,6 +1,7 @@
 import type {TrackCardProps} from "./track-card.props";
 import {MediaCard} from "@/src/shared/ui/media-card";
 import {ReactNode, useMemo, useState} from "react";
+import {LikeButton} from "@/src/features/like";
 
 const TYPE = 'audio'
 
@@ -11,7 +12,7 @@ const formatDuration = (sec: number | null) => {
     return `${m}:${s.toString().padStart(2, "0")}`;
 };
 
-export const TrackCard = ({title, cover, meta, type, src, ratio="1.035 / 1"}: TrackCardProps) => {
+export const TrackCard = ({title, cover, meta, type, src, ratio="1.035 / 1", trackId, liked, likesCount}: TrackCardProps) => {
 
     const [mediaMeta, setMediaMeta] = useState<Record<string, unknown>>({duration: null})
 
@@ -39,6 +40,14 @@ export const TrackCard = ({title, cover, meta, type, src, ratio="1.035 / 1"}: Tr
                 : (value as ReactNode)}
         </span>
                         ))}
+                            <span className="d-flex align-items-center justify-content-end">
+                                <LikeButton
+                                    trackId={trackId}
+                                    liked={liked}
+                                    likesCount={likesCount}
+                                    size="sm"
+                                />
+                            </span>
                     </MediaCard.Meta>
                 </MediaCard.Body>
             </MediaCard>
