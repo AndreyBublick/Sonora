@@ -21,6 +21,7 @@ export const PlaylistsSection = ({ title, queryPlaylistParams }: PlaylistsSectio
             type={'Playlists'}
             title={title}
             items={items}
+            mb={60}
             renderItem={(playlist) => (
                 <PlaylistCard
                     ratio={ratio}

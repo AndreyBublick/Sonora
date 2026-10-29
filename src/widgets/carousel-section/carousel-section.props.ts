@@ -13,4 +13,5 @@ export type CarouselSectionProps<T> = {
     isLoading?: boolean;
     schema?:MediaCardSchema
     ratio?:string
+    mb?:number
 };

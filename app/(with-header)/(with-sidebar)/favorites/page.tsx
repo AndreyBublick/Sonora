@@ -1,15 +1,15 @@
 "use client";
 
-import { useLikedTracks, type FlatTrack, LikeButton } from "@/src/features/like";
-import { DataTable } from "@/src/shared/ui/data-table";
-import { SectionTitle } from "@/src/shared/ui/section-title";
-import { MediaElement } from "@/src/shared/ui/media-element";
-import { useMemo } from "react";
+import {LikeButton} from "@/src/features/like";
+import {DataTable} from "@/src/shared/ui/data-table";
+import {SectionTitle} from "@/src/shared/ui/section-title";
+import {MediaElement} from "@/src/shared/ui/media-element";
+import {FlatTrack, useTracks} from "@/src/entities/track";
 
 export default function FavoritesPage() {
-    const { data, isLoading } = useLikedTracks({ pageSize: 20 });
+    const { data, isLoading } = useTracks({ onlyLikedByMe: true });
 
-    const items = useMemo<FlatTrack[]>(() => data?.data ?? [], [data]);
+    const items = data ?? [];
 
     return (
         <section className="px-0" style={{ marginBottom: 64 }}>

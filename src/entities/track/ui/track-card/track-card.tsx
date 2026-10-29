@@ -18,7 +18,7 @@ export const TrackCard = ({title, cover, meta, type, src, ratio="1.035 / 1", tra
 
     const metaAttributes = useMemo(()=>{
         return Object.entries({...(meta ?? {}), ...(mediaMeta ?? {})})
-    },[mediaMeta])
+    },[meta, mediaMeta])
 
 
     if(type.includes(TYPE)) {
@@ -40,14 +40,7 @@ export const TrackCard = ({title, cover, meta, type, src, ratio="1.035 / 1", tra
                 : (value as ReactNode)}
         </span>
                         ))}
-                            <span className="d-flex align-items-center justify-content-end">
-                                <LikeButton
-                                    trackId={trackId}
-                                    liked={liked}
-                                    likesCount={likesCount}
-                                    size="sm"
-                                />
-                            </span>
+
                     </MediaCard.Meta>
                 </MediaCard.Body>
             </MediaCard>

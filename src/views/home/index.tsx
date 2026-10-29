@@ -11,9 +11,9 @@ export const HomePage = ({}) => {
     return (
         <>
             <HeroSection />
+            <WeeklyTopSongsSection />
+            <NewReleaseSongsSection />
             <TrendingSongsSection />
-           {/* <WeeklyTopSongsSection /> */}{/*NetWork*/}
-          {/*  <NewReleaseSongsSection />*/} {/*NetWork*/}
             <OffersSection />
             <MoodPlaylistsSection /> {/*NetWork*/}
             <JoinOurPlatformSection />

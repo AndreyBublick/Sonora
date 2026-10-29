@@ -1,6 +1,6 @@
 import {CarouselSection} from "@/src/widgets/carousel-section";
-import {type GetTracksParams, mapTracksData, TrackCard, useTracks} from "@/src/entities/track";
-import {useMemo} from "react";
+import {type GetTracksParams, TrackCard, useTracks} from "@/src/entities/track";
+import {LIKE} from "@/src/features/like/model/constants";
 
 type TracksSectionProps = {
     title: string;
@@ -10,7 +10,7 @@ type TracksSectionProps = {
 export const TracksSection = ({ title, queryTrackParams }: TracksSectionProps) => {
     const { data, isLoading } = useTracks(queryTrackParams);
 
-    const items = useMemo(() => mapTracksData(data), [data]);
+    const items = data ?? [];
     const ratio = "1.035 / 1"
 
     return (
@@ -28,7 +28,7 @@ export const TracksSection = ({ title, queryTrackParams }: TracksSectionProps) =
                     type={track.contentType}
                     title={track.title}
                     trackId={track.id}
-                    liked={track.currentUserReaction === 1}
+                    liked={track.currentUserReaction === LIKE}
                     likesCount={track.likesCount}
                     meta={{ creatorName: track.creator?.name }}
                 />
