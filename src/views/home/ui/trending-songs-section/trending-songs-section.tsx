@@ -6,10 +6,11 @@ import styles from "./trending-songs-section.module.scss";
 import {SectionTitle} from "@/src/shared/ui/section-title";
 import React, {useMemo} from "react";
 import {UiButton} from "@/src/shared/ui";
-import {HeartIcon, PlusIcon} from "@radix-ui/react-icons";
+import {PlusIcon} from "@radix-ui/react-icons";
 import {useMediaQuery} from "@/src/shared/lib";
 import {mapTracksData, useTracks} from "@/src/entities/track";
 import {MediaElement} from "@/src/shared/ui/media-element";
+import {LikeButton} from "@/src/features/like";
 
 
 export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
@@ -117,7 +118,12 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
                             const m = Math.floor(track.duration / 60);
                             const s = Math.floor(track.duration % 60);
                             return <div className={`d-flex align-items-center gap-3`} style={{paddingRight:32}}>
-                                <HeartIcon style={{color:'var(--accent-400)'}} width={20} height={20} />
+                                    <LikeButton
+                                        trackId={track.id}
+                                        liked={!!track.currentUserReaction}
+                                        likesCount={track.likesCount}
+                                        size="sm"
+                                    />
                             <span className={`d-inline-flex`}>
                                { `${m}:${s.toString().padStart(2, "0")}`}
                             </span>

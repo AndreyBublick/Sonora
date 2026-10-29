@@ -12,10 +12,10 @@ export const HomePage = ({}) => {
         <>
             <HeroSection />
             <TrendingSongsSection />
-            {/*<WeeklyTopSongsSection />*/} {/*NetWork*/}
-            {/*<NewReleaseSongsSection />*/} {/*NetWork*/}
+           {/* <WeeklyTopSongsSection /> */}{/*NetWork*/}
+          {/*  <NewReleaseSongsSection />*/} {/*NetWork*/}
             <OffersSection />
-            {/*<MoodPlaylistsSection />*/} {/*NetWork*/}
+            <MoodPlaylistsSection /> {/*NetWork*/}
             <JoinOurPlatformSection />
         </>
     );

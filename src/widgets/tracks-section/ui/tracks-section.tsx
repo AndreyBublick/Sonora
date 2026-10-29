@@ -27,6 +27,9 @@ export const TracksSection = ({ title, queryTrackParams }: TracksSectionProps) =
                     cover={track.image?.url ?? ""}
                     type={track.contentType}
                     title={track.title}
+                    trackId={track.id}
+                    liked={track.currentUserReaction === 1}
+                    likesCount={track.likesCount}
                     meta={{ creatorName: track.creator?.name }}
                 />
             )}
