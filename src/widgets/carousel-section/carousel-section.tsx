@@ -13,6 +13,7 @@ export const CarouselSection = <T,>({
                                         renderItem,
                                         isLoading,
                                         ratio='1/1',
+    mb=52,
     schema={media:true,title:true, meta:2}
                                     }: CarouselSectionProps<T>) => {
 
@@ -29,7 +30,7 @@ export const CarouselSection = <T,>({
 
     return (
         <section style={{
-            marginBottom: isMobile ? 26 : 52
+            marginBottom: isMobile ? 26 : mb
         }}>
             <SectionTitle className={`mb-3`} style={{lineHeight:1.375}}>
                 {title}

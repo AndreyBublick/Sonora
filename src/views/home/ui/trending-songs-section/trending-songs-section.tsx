@@ -4,11 +4,10 @@ import type {TrendingSongsSectionProps} from "./trending-songs-section.props";
 import {DataTable} from "@/src/shared/ui/data-table";
 import styles from "./trending-songs-section.module.scss";
 import {SectionTitle} from "@/src/shared/ui/section-title";
-import React, {useMemo} from "react";
 import {UiButton} from "@/src/shared/ui";
 import {PlusIcon} from "@radix-ui/react-icons";
 import {useMediaQuery} from "@/src/shared/lib";
-import {mapTracksData, useTracks} from "@/src/entities/track";
+import {useTracks} from "@/src/entities/track";
 import {MediaElement} from "@/src/shared/ui/media-element";
 import {LikeButton} from "@/src/features/like";
 
@@ -18,7 +17,7 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
     const isMobile = useMediaQuery({maxWidth:992});
     const { data, isLoading } = useTracks({sortBy:'publishedAt', sortDirection: 'desc', pageSize:7});
 
-    const items = useMemo(() => mapTracksData(data), [data]);
+    const items = data ?? [];
 
     const title = <SectionTitle style={{marginLeft: isMobile ? '-50px': 0}}>
         Trending
@@ -122,7 +121,7 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
                                         trackId={track.id}
                                         liked={!!track.currentUserReaction}
                                         likesCount={track.likesCount}
-                                        size="sm"
+                                        size="md"
                                     />
                             <span className={`d-inline-flex`}>
                                { `${m}:${s.toString().padStart(2, "0")}`}
