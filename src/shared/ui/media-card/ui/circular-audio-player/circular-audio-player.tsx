@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { CircularAudioPlayerProps } from "./circular-audio-player.props";
+import {useEffect, useRef, useState} from "react";
+import {CircularAudioPlayerProps} from "./circular-audio-player.props";
 import Image from "next/image";
 import {audioManager} from "../../model/audio-manager";
 import {PauseIcon, PlayIcon} from "@radix-ui/react-icons";
@@ -9,16 +9,17 @@ export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia, si
     const [playing, setPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [hasError, setHasError] = useState(false);
     const [isOver, setIsOver] = useState(false);
+
     const stroke = 4;
     const r = (size - stroke) / 2;
     const c = 2 * Math.PI * r;
-
     const showControls = isLoaded && (isOver || playing);
 
     const toggle = () => {
         const audio = audioRef.current;
-        if (!audio || !isLoaded) return;
+        if (!audio || !isLoaded || hasError) return;
 
         if (audio.paused) {
             audioManager.register(audio, () => setPlaying(false));
@@ -136,7 +137,10 @@ export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia, si
                         className="btn border-0 d-flex justify-content-center align-items-center cursor-pointer"
                         style={{padding: size * 0.28, opacity: isOver ? 1 : 0, color: "white", background: "transparent", zIndex: 1 }}
                     >
-                        {!isLoaded && <div className="spinner-border" />}
+                        {!isLoaded && !hasError && <div className="spinner-border" />}
+                        {hasError && (
+                            <span style={{ color: "var(--danger)", fontSize: size * 0.65, fontWeight: 700 }}>!</span>
+                        )}
                         {isLoaded && (playing
                                 ? <PauseIcon width={size * 0.4} height={size * 0.4} />
                                 : <PlayIcon width={size * 0.4} height={size * 0.4} />
@@ -145,7 +149,8 @@ export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia, si
                 </div>
             <div className={`w-100 h-100 position-absolute`} style={{ transition:'opacity 0.15s linear', inset:0, background:'black', opacity: isOver ? 0.4 : 0}} />
 
-            <audio ref={audioRef} src={src} preload="auto" style={{ display: "none" }} />
+            <audio ref={audioRef} src={src} preload="auto" style={{ display: "none" }}    onError={() => setHasError(true)}
+                   onLoadStart={() => setHasError(false)} />
         </div>
     );
 };
