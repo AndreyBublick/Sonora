@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import {OnLoadMedia} from "../../media-card.props";
+import {OnLoadMedia} from "@/src/shared/ui/media-element";
 
 export type CircularAudioPlayerProps = {
     onLoadMedia?:OnLoadMedia
@@ -8,4 +8,5 @@ export type CircularAudioPlayerProps = {
     fallbackCover?: ReactNode;
     size?: number;
     isCircle?:boolean;
+    isHovered?:boolean;
 }

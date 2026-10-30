@@ -20,7 +20,7 @@ export const LikeButton = ({
         },
     });
 
-    const handleClick = () => {
+    const onClickHandler = () => {
         if (isPending) return;
         mutate({ trackId, currentState: liked ? "liked" : null });
     };
@@ -40,7 +40,7 @@ export const LikeButton = ({
                 styles["like-button"],
                 isPending && styles["like-button-pending"]
             )}
-            onClick={handleClick}
+            onClick={onClickHandler}
             aria-label={liked ? "Unlike track" : "Like track"}
             aria-pressed={liked}
         >

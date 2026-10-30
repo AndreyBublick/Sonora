@@ -13,6 +13,7 @@ type BaseProps = {
     backgroundColor?:string
     style?:CSSProperties
     ratio?:string
+    isHovered?:boolean
 }
 
 export type MediaElementProps =

@@ -18,7 +18,7 @@ export const AvatarChip = ({}: AvatarChipProps) => {
     };
     const {user} = useAuth()
 
-    const handleLogout = async () => {
+    const onLogoutHandler = async () => {
         logout()
     };
 
@@ -74,7 +74,7 @@ export const AvatarChip = ({}: AvatarChipProps) => {
                         icon: (
                             <ExitIcon width={14} height={14} />
                         ),
-                        onClick: handleLogout,
+                        onClick: onLogoutHandler,
                     },
                 ]}
             />

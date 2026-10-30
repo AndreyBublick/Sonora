@@ -17,6 +17,8 @@ export function DataTable<T>({
     items,
     keyExtractor,
     onRowClick,
+    onRowEnter,
+    onRowLeave,
     isLoading,
     emptyText = "Нет данных",
                                  className='',
@@ -63,6 +65,8 @@ export function DataTable<T>({
                             <Fragment key={keyExtractor(item, index)}>
                                 <tr
                                     onClick={onRowClick ? () => onRowClick(item) : undefined}
+                                    onMouseEnter={onRowEnter ? () => onRowEnter(item) : undefined}
+                                    onMouseLeave={onRowLeave ? () => onRowLeave(item) : undefined}
                                     style={onRowClick ? { cursor: "pointer" } : undefined}
                                 >
                                     {columns.map((col, i) => (

@@ -7,17 +7,14 @@ import {SectionTitle} from "@/src/shared/ui/section-title";
 import {UiButton} from "@/src/shared/ui";
 import {PlusIcon} from "@radix-ui/react-icons";
 import {useMediaQuery} from "@/src/shared/lib";
-import {useTracks} from "@/src/entities/track";
 import {MediaElement} from "@/src/shared/ui/media-element";
 import {LikeButton} from "@/src/features/like";
-
+import {useTrendingSongsSection} from "./lib/use-trending-songs-section";
 
 export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
 
     const isMobile = useMediaQuery({maxWidth:992});
-    const { data, isLoading } = useTracks({sortBy:'publishedAt', sortDirection: 'desc', pageSize:7});
-
-    const items = data ?? [];
+    const {isLoading, items, overElementId, onLeaveHandler, onEnterHandler} = useTrendingSongsSection()
 
     const title = <SectionTitle style={{marginLeft: isMobile ? '-50px': 0}}>
         Trending
@@ -37,6 +34,8 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
 
             <DataTable
                 className={styles["trending-songs-table"]}
+                onRowLeave={onLeaveHandler}
+                onRowEnter={onEnterHandler}
                 items={items}
                 style={{
                     minWidth: "860px",
@@ -64,7 +63,7 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
                                 <div style={{ width: 58, height: 58, borderRadius:5, transform: "scale(1.035)",}}
                                      className={`overflow-hidden position-relative`}>
 
-                                  <MediaElement sizePlayElement={35} type={'audio'} cover={cover} src={src} backgroundColor={'var(--gray-500)'} className={''} style={{
+                                  <MediaElement isHovered={overElementId === track.id} sizePlayElement={35} type={'audio'} cover={cover} src={src} backgroundColor={'var(--gray-500)'} className={''} style={{
                                       borderRadius: 5,
                                   }} />
                                 </div>
@@ -100,13 +99,13 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
                                     day: "numeric",
                                     year: "numeric",
                                 })
-                                : "--",
+                                : "--"
                     },
                     {
                         header: "Album",
                         className: "text-center w-100",
                         style:{paddingRight:44},
-                        render: (track) => (<div style={{margin:'0 auto', overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth:'500px'}}>
+                        render: (track) => (<div  style={{margin:'0 auto', overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth:'500px'}}>
                             {track.originalName}
                         </div>),
                     },
@@ -116,7 +115,7 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
                         render: (track) => {
                             const m = Math.floor(track.duration / 60);
                             const s = Math.floor(track.duration % 60);
-                            return <div className={`d-flex align-items-center gap-3`} style={{paddingRight:32}}>
+                            return <div className={`d-flex align-items-center gap-3`} style={{paddingRight:32}} >
                                     <LikeButton
                                         trackId={track.id}
                                         liked={!!track.currentUserReaction}
@@ -138,7 +137,6 @@ export const TrendingSongsSection = ({}: TrendingSongsSectionProps) => {
             {/* View All */}
             <div className="d-flex justify-content-center align-items-center">
                 <UiButton
-
                     className={`py-2 fw-medium d-flex gap-1`}
                     style={{
                         backgroundColor:'var(--gray-800)',

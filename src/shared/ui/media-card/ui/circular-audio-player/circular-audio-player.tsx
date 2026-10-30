@@ -4,13 +4,15 @@ import Image from "next/image";
 import {audioManager} from "../../model/audio-manager";
 import {PauseIcon, PlayIcon} from "@radix-ui/react-icons";
 
-export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia, size = 50, isCircle=true }: CircularAudioPlayerProps) => {
+export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia, size = 50, isCircle=true, isHovered=false }: CircularAudioPlayerProps) => {
     const audioRef = useRef<HTMLAudioElement>(null);
     const [playing, setPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
     const [isLoaded, setIsLoaded] = useState(false);
     const [hasError, setHasError] = useState(false);
-    const [isOver, setIsOver] = useState(false);
+    const [isOverLocal, setIsOverLocal] = useState(false);
+
+    const isOver = isHovered || isOverLocal;
 
     const stroke = 4;
     const r = (size - stroke) / 2;
@@ -76,9 +78,9 @@ export const CircularAudioPlayer = ({ src, cover, fallbackCover, onLoadMedia, si
 
     return (
         <div onMouseEnter={()=>{
-            setIsOver(true)
+            setIsOverLocal(true)
         }} onMouseLeave={()=>{
-            setIsOver(false)
+            setIsOverLocal(false)
         }} className="position-relative d-flex justify-content-center align-items-center h-100 w-100">
             {cover ? (
                 <Image src={cover}

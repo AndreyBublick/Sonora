@@ -12,7 +12,6 @@ export type DataTableProps<T> = {
     columns: DataTableColumn<T>[];
     items: T[];
     keyExtractor: (item: T, index: number) => string;
-    onRowClick?: (item: T) => void;
     isLoading?: boolean;
     emptyText?: string;
     style?: CSSProperties;
@@ -20,4 +19,7 @@ export type DataTableProps<T> = {
     thStyles?: CSSProperties;
     expandedRow?: (item: T) => ReactNode;
     className?:string
+    onRowClick?: (item: T) => void;
+    onRowEnter?: (item: T) => void,
+    onRowLeave?: (item: T) => void,
 };

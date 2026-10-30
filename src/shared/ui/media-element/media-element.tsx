@@ -8,7 +8,7 @@ import {PlaceholderIcons} from "./placeholder-icons";
 
 
 export const MediaElement = ({
-                                 shape, children, mediaPlaceholder , className='rounded-3', backgroundColor='var(--gray-900)', style:styles={}, ratio='1/1', ...props
+                                isHovered=false, shape, children, mediaPlaceholder , className='rounded-3', backgroundColor='var(--gray-900)', style:styles={}, ratio='1/1', ...props
                                  }: MediaElementProps) => {
     const type: MediaType = props.type ?? "image";
 
@@ -40,7 +40,7 @@ export const MediaElement = ({
 
             audio: () =>
                 (props.type === "audio") && props.src ? ( <div className={shapeClass} style={style}>
-                        <CircularAudioPlayer size={props.sizePlayElement} onLoadMedia={props.onLoadMedia} src={props.src} cover={props.cover} fallbackCover={renderPlaceholder()} />
+                        <CircularAudioPlayer isHovered={isHovered} size={props.sizePlayElement} onLoadMedia={props.onLoadMedia} src={props.src} cover={props.cover} fallbackCover={renderPlaceholder()} />
                     </div>
                 ) : null,
 
