@@ -6,15 +6,20 @@ import style from "./sidebar-element.module.scss";
 import Link from "next/link";
 
 
-export const SidebarElement = ({styles={} ,icon, body, onClick, ...rest}: SidebarElementProps) => {
+export const SidebarElement = ({styles={}, icon:IconTarget, body, onClick, ...rest}: SidebarElementProps) => {
 
     const pathname = usePathname();
     const isActive = rest.href === pathname;
     const isButton = rest.as === "button"
 
+    const iconStyle = {
+        width:18,
+        height:18,
+    }
+
     const content = (
         <>
-            <span className={`d-flex align-items-center`}>{icon}</span>
+            <span className={`d-flex align-items-center`}>{<IconTarget {...iconStyle} />}</span>
             {body}
         </>
     );

@@ -6,7 +6,7 @@ type SidebarElement = SidebarElementProps
 export type SidebarProps = {
     id?:string
     logo?:ReactNode
-    sidebarData:SidebarSection[]
+    navigationItems:SidebarSection[]
     nested?:ReactNode
 };
 

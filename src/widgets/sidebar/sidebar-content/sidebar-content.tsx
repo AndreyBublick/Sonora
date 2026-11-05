@@ -3,13 +3,13 @@ import {SidebarContentProps} from "./sidebar-content.props";
 import {SidebarElement} from "../element";
 
 
-export const SidebarContent = ({ logo, sidebarData, onNavigate, wrapperClassName='' }: SidebarContentProps) => {
+export const SidebarContent = ({ logo, navigationItems, onNavigate, wrapperClassName='' }: SidebarContentProps) => {
 
     return (
         <nav>
             {logo}
             <div className={`${wrapperClassName}`}>
-                {sidebarData.map(({ title, items }, index) => (
+                {navigationItems.map(({ title, items }, index) => (
                     <div key={index} className={`mb-3`}>
             <span
                 className="d-inline-block mb-4"
