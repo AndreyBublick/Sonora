@@ -1,7 +1,8 @@
-import {CSSProperties, ReactNode} from "react";
+import {CSSProperties, ForwardRefExoticComponent, ReactNode, RefAttributes} from "react";
+import {IconProps} from "@radix-ui/react-icons/dist/types";
 
 type BaseProps = {
-    icon: ReactNode;
+    icon: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
     body: ReactNode;
     onClick?: () => void;
     styles?: CSSProperties;

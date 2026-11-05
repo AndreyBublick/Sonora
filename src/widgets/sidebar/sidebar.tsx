@@ -3,7 +3,7 @@
 import {SidebarContent} from "./sidebar-content";
 import type {SidebarProps} from "./sidebar.props";
 
-export const Sidebar = ({logo, sidebarData}: SidebarProps) => {
+export const Sidebar = ({logo, navigationItems}: SidebarProps) => {
 
     return (
         <>
@@ -16,7 +16,7 @@ export const Sidebar = ({logo, sidebarData}: SidebarProps) => {
                     minHeight: "100%",
                 }}
             >
-                <SidebarContent wrapperClassName={'pt-4'} logo={logo} sidebarData={sidebarData}/>
+                <SidebarContent wrapperClassName={'pt-4'} logo={logo} navigationItems={navigationItems}/>
             </aside>
         </>
     );

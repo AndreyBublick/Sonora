@@ -3,7 +3,7 @@ import {SidebarSection} from "../sidebar.props";
 
 export type SidebarContentProps = {
     logo?: ReactNode;
-    sidebarData: SidebarSection[];
+    navigationItems: SidebarSection[];
     onNavigate?: () => void;
     wrapperClassName?:string
 };

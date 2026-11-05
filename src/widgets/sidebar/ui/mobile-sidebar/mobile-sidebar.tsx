@@ -5,12 +5,12 @@ import {Logo, UiButton} from "@/src/shared/ui";
 import {Cross2Icon, TextAlignJustifyIcon} from "@radix-ui/react-icons";
 import * as Dialog from "@radix-ui/react-dialog";
 import styles from "./mobile-sidebar.module.scss";
-import {SidebarContent, useSidebarData} from "@/src/widgets/sidebar";
+import {SidebarContent, useSidebarNavigation} from "@/src/widgets/sidebar";
 
 export const MobileSidebar = ({}: MobileSidebarProps) => {
 
     const [open, setOpen] = useState(false);
-    const sidebarData = useSidebarData()
+    const navigationItems = useSidebarNavigation()
 
     return (
         <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -49,7 +49,7 @@ export const MobileSidebar = ({}: MobileSidebarProps) => {
                     <div className={`flex-1 overflow-y-auto px-3 py-2`}>
                         <SidebarContent
                             logo={""}
-                            sidebarData={sidebarData}
+                            navigationItems={navigationItems}
                             onNavigate={() => setOpen(false)}
                         />
                     </div>
