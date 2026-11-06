@@ -16,3 +16,7 @@ export const useRightRailTarget = () => {
     }
     return ctx;
 };
+
+export const useRightRailTargetOptional = () => {
+    return useContext(RightRailContext);
+};

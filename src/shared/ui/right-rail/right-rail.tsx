@@ -23,7 +23,7 @@ export const RightRail = ({
                             type="button"
                             className={styles['toggle-btn']}
                             onClick={() => setIsExpanded((prev) => !prev)}
-                            aria-label={isExpanded ? 'Скрыть боковую панель' : 'Показать боковую панель'}
+                            aria-label={isExpanded ? 'Hide aside bar' : 'Show aside bar'}
                         >
                                 <svg style={{
                                     transform: isExpanded ? 'rotate(-0deg)' : 'rotate(180deg)',

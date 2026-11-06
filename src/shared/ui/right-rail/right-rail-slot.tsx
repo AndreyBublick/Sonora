@@ -2,12 +2,14 @@
 
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import {useRightRailTarget} from "@/src/shared/contexts";
+import {useRightRailTargetOptional} from "@/src/shared/contexts";
 
 export const RightRailSlot = ({ children }: { children: ReactNode }) => {
-    const { node } = useRightRailTarget();
+    const ctx = useRightRailTargetOptional();
 
-    if (!node) return null;
+    if (!ctx || !ctx.node) {
+        return null;
+    }
 
-    return createPortal(children, node);
+    return createPortal(children, ctx.node);
 };
