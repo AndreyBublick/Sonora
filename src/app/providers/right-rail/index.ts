@@ -1,1 +1,1 @@
-export * from './right-rail-context';
+export * from './right-rail-provider';

@@ -3,7 +3,7 @@
 import type { RightRailProps } from './right-rail.props';
 import styles from './right-rail.module.scss';
 import { useState } from 'react';
-import { useRightRailTarget } from '@/src/app/providers/right-rail';
+import {useRightRailTarget} from "@/src/shared/contexts";
 
 export const RightRail = ({
                               className = '',
