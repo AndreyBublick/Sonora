@@ -1,16 +1,13 @@
-import {BaseMediaAttributes} from "@/src/shared/api/types";
 import {FlatImage, JsonApiResource, PublishableAttributes} from "@/src/shared/types";
 
-export type NewsAttachment = {
+export type NewsAttributes = PublishableAttributes & {
    id: string;
    title: string;
    subTitle: string;
    textBody: string;
    image: FlatImage;
-};
-
-export type NewsAttributes = BaseMediaAttributes & PublishableAttributes & {
-    attachments?: NewsAttachment[];
+   addedAt:string
+   /* attachments?: NewsAttachment[];*/
 };
 
 export type News = JsonApiResource<"news", NewsAttributes>;
