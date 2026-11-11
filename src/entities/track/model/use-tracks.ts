@@ -2,7 +2,7 @@
 import {keepPreviousData, useQuery} from "@tanstack/react-query";
 import {getTracks} from "../api/get-tracks";
 import type {GetTracksParams} from "../api/types";
-import {mapTracksData, Track} from "@/src/entities/track";
+import {toTrackPreviews, Track} from "@/src/entities/track";
 import {ListResponse} from "@/src/shared/api/types";
 
 export const MOCK_TRACKS_RESPONSE: ListResponse<Track> = {
@@ -126,7 +126,7 @@ export const MOCK_TRACKS_RESPONSE: ListResponse<Track> = {
 export const useTracks = (params: GetTracksParams = {}) =>
     useQuery({
         queryKey: ["tracks", params],
-        queryFn: async () => (Promise.resolve(MOCK_TRACKS_RESPONSE) || getTracks(params)).then((response) => mapTracksData(response)),
+        queryFn: async () => (Promise.resolve(MOCK_TRACKS_RESPONSE) || getTracks(params)).then((response) => toTrackPreviews(response)),
         placeholderData: keepPreviousData,
         staleTime: 60_000,
         meta: { skipToast: true },
