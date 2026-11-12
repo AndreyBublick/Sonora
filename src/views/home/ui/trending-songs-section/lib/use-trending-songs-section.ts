@@ -5,9 +5,8 @@ import {useState} from "react";
 
 export const useTrendingSongsSection = () => {
 
-    const { data, isLoading } = useTracks({sortBy:'publishedAt', sortDirection: 'desc', pageSize:7});
+    const { data:items=[], isLoading } = useTracks({sortBy:'publishedAt', sortDirection: 'desc', pageSize:7});
     const [ overElementId, setOverElementId ] = useState<string | null>(null);
-    const items = data ?? [];
 
     const onEnterHandler = (item:FlatTrack) => {
         setOverElementId(item.id)

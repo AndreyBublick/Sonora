@@ -3,8 +3,7 @@ import {NewsCard, useNews} from "@/src/entities/news";
 
 export const News = ({}: NewsProps) => {
 
-    const {data} = useNews();
-    const items = data ?? []
+    const {data:items=[]} = useNews();
 
     return (
         <div className="d-flex flex-column gap-3">

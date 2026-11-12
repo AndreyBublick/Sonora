@@ -6,9 +6,8 @@ import {MediaElement} from "@/src/shared/ui/media-element";
 import {useTracks} from "@/src/entities/track";
 
 export default function FavoritesPage() {
-    const { data, isLoading } = useTracks({ onlyLikedByMe: true });
+    const { data:items=[], isLoading } = useTracks({ onlyLikedByMe: true });
 
-    const items = data ?? [];
 
     return (
         <section className="px-0" style={{ marginBottom: 64 }}>

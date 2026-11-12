@@ -1,5 +1,13 @@
-import {BaseMediaAttributes} from "@/src/shared/api/types";
+import {BaseMediaAttributes, Image, User} from "@/src/shared/api/types";
 import {JsonApiResource, PublishableAttributes} from "@/src/shared/types";
+
+export type FlatTrack = Omit<TrackAttachment, "updatedAt" | "version"> &
+    Pick<BaseMediaAttributes, "title" | "likesCount" | "duration" | "currentUserReaction"> &
+    PublishableAttributes & {
+    id: string;
+    image?: Image;
+    creator?: User;
+};
 
 export type TrackAttachment = {
     id: string;

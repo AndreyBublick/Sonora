@@ -13,7 +13,7 @@ export const DiscoverPanel = ({}: DiscoverPanelProps) => {
                 News
             </Title>
             <News />
-            <Title style={{marginTop:32}}>
+            <Title style={{marginTop:32, padding:0}}>
                 Popular authors
             </Title>
             <PopularAuthors />

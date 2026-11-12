@@ -5,6 +5,7 @@ import {MediaType} from "@/src/shared/types";
 import {CircularAudioPlayer} from "@/src/shared/ui/media-card";
 import Image from "next/image";
 import {PlaceholderIcons} from "./placeholder-icons";
+import {clsx} from "clsx";
 
 
 export const MediaElement = ({
@@ -12,8 +13,15 @@ export const MediaElement = ({
                                  }: MediaElementProps) => {
     const type: MediaType = props.type ?? "image";
 
-    const shapeClass = shape === "circle" ? "rounded-circle" : `overflow-hidden ${className}`;
-        const style: CSSProperties = {
+    const isCircle = shape === "circle"
+
+    const shapeClass = clsx(
+        "overflow-hidden",
+        isCircle && "rounded-circle",
+        className,
+    );
+
+    const style: CSSProperties = {
             objectFit: "cover",
             position:'absolute',
             inset:0,
@@ -82,7 +90,7 @@ export const MediaElement = ({
 
 
         return (
-            <div className="position-relative overflow-hidden" style={{
+            <div className={clsx("position-relative overflow-hidden", isCircle && `rounded-circle`)} style={{
                 width: "100%",
                 aspectRatio: ratio,
             }}>

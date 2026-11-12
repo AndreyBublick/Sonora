@@ -1,4 +1,4 @@
-import type { Playlist } from "../model/types";
+import type { Playlist } from "../api/types";
 import type { ListResponse } from "@/src/shared/api/types";
 
 export const toPlaylistPreviews = (data?: ListResponse<Playlist>) => {
