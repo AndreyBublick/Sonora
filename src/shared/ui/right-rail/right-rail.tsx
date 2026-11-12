@@ -4,6 +4,7 @@ import type { RightRailProps } from './right-rail.props';
 import styles from './right-rail.module.scss';
 import { useState } from 'react';
 import {useRightRailTarget} from "@/src/shared/contexts";
+import {clsx} from "clsx";
 
 export const RightRail = ({
                               className = '',
@@ -16,9 +17,15 @@ export const RightRail = ({
     return (
         <aside
             className={`${styles['rail']} ${isExpanded ? styles['rail-expanded'] : styles['rail-collapsed']} ${className}`}
-            style={{ ...style, width: isExpanded ? width : undefined }}
+
+            style={{
+                width: isExpanded ? width : 0,
+                ...style,
+            }}
         >
-                <div className={`${styles['action-wrapper']}`}>
+                <div className={clsx({
+                     [styles['action-wrapper-expanded']] : isExpanded,
+                }, styles['action-wrapper']) }>
                         <button
                             type="button"
                             className={styles['toggle-btn']}
@@ -34,7 +41,7 @@ export const RightRail = ({
                 </div>
 
 
-            <div className={styles['content']} ref={setNode} />
+            <div className={styles['content']} style={{ width }} ref={setNode} />
         </aside>
     );
 };

@@ -1,8 +1,8 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { createPortal } from 'react-dom';
-import {useRightRailTargetOptional} from "@/src/shared/contexts";
+import * as Portal from '@radix-ui/react-portal';
+import { useRightRailTargetOptional } from "@/src/shared/contexts";
 
 export const RightRailSlot = ({ children }: { children: ReactNode }) => {
     const ctx = useRightRailTargetOptional();
@@ -11,5 +11,9 @@ export const RightRailSlot = ({ children }: { children: ReactNode }) => {
         return null;
     }
 
-    return createPortal(children, ctx.node);
+    return (
+        <Portal.Root container={ctx.node}>
+            {children}
+        </Portal.Root>
+    );
 };

@@ -7,6 +7,7 @@ import {JoinOurPlatformSection} from "./ui/join-our-platform-section";
 import {OffersSection} from "./ui/offers-section";
 import {TrendingSongsSection} from "./ui/trending-songs-section";
 import {RightRailSlot} from "@/src/shared/ui";
+import {DiscoverPanel} from "./ui/discover-panel";
 
 export const HomePage = ({}) => {
     return (
@@ -19,7 +20,9 @@ export const HomePage = ({}) => {
             <MoodPlaylistsSection /> {/*NetWork*/}
             <JoinOurPlatformSection />
 
-            <RightRailSlot><div>123</div></RightRailSlot>
+            <RightRailSlot>
+                <DiscoverPanel />
+            </RightRailSlot>
         </>
     );
 

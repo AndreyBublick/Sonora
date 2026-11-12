@@ -12,7 +12,7 @@ export const RightRailContext = createContext<RightRailContextValue | null>(null
 export const useRightRailTarget = () => {
     const ctx = useContext(RightRailContext);
     if (!ctx) {
-        throw new Error('RightRail must be using inside RightRailProvider');
+        throw new Error('RightRail must be used inside RightRailProvider');
     }
     return ctx;
 };
