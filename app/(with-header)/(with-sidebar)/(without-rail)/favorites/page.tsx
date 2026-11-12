@@ -1,10 +1,9 @@
 "use client";
 
 import {LikeButton} from "@/src/features/like";
-import {DataTable} from "@/src/shared/ui/data-table";
-import {SectionTitle} from "@/src/shared/ui/section-title";
+import {DataTable, SectionTitle} from "@/src/shared/ui";
 import {MediaElement} from "@/src/shared/ui/media-element";
-import {FlatTrack, useTracks} from "@/src/entities/track";
+import {useTracks} from "@/src/entities/track";
 
 export default function FavoritesPage() {
     const { data, isLoading } = useTracks({ onlyLikedByMe: true });
@@ -20,7 +19,7 @@ export default function FavoritesPage() {
             </div>
 
             <div style={{ overflowY: "clip" }} className={`w-100 overflow-x-auto custom-y-scroll`}>
-                <DataTable<FlatTrack>
+                <DataTable
                     items={items}
                     style={{
                         minWidth: "860px",
