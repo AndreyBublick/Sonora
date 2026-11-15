@@ -1,4 +1,13 @@
-import {BaseMediaAttributes} from "@/src/shared/api/types";
+import {BaseMediaAttributes, Image, User} from "@/src/shared/api/types";
+import {JsonApiResource, PublishableAttributes} from "@/src/shared/types";
+
+export type FlatTrack = Omit<TrackAttachment, "updatedAt" | "version"> &
+    Pick<BaseMediaAttributes, "title" | "likesCount" | "duration" | "currentUserReaction"> &
+    PublishableAttributes & {
+    id: string;
+    image?: Image;
+    creator?: User;
+};
 
 export type TrackAttachment = {
     id: string;
@@ -11,17 +20,14 @@ export type TrackAttachment = {
     fileSize: number;
 };
 
-export type Track = {
-    id: string;
-    type: "tracks";
-    attributes: BaseMediaAttributes & {
-        isPublished: boolean;
-        publishedAt?: string;
-        attachments?: TrackAttachment[];
-    };
-    relationships?: {
-        artists?: {
-            data: { id: string; type: string }[];
-        };
+type TrackRelationships = {
+    artists?: {
+        data: { id: string; type: string }[];
     };
 };
+
+export type TrackAttributes = BaseMediaAttributes & PublishableAttributes & {
+    attachments?: TrackAttachment[];
+};
+
+export type Track = JsonApiResource<"tracks", TrackAttributes, TrackRelationships>;

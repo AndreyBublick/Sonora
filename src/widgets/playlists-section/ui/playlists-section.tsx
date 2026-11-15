@@ -1,6 +1,5 @@
 import { CarouselSection } from "@/src/widgets/carousel-section";
-import {usePlaylists, mapPlaylistsData, type GetPlaylistsParams, PlaylistCard} from "@/src/entities/playlist";
-import { useMemo } from "react";
+import {usePlaylists, type GetPlaylistsParams, PlaylistCard} from "@/src/entities/playlist";
 
 type PlaylistsSectionProps = {
     title: string;
@@ -8,9 +7,8 @@ type PlaylistsSectionProps = {
 }
 
 export const PlaylistsSection = ({ title, queryPlaylistParams }: PlaylistsSectionProps) => {
-    const { data, isLoading } = usePlaylists(queryPlaylistParams);
+    const { data:items=[], isLoading } = usePlaylists(queryPlaylistParams);
 
-    const items = useMemo(() => mapPlaylistsData(data), [data]);
     const ratio = "1.095 / 1"
 
     return (

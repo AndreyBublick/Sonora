@@ -1,7 +1,7 @@
-import type { Playlist } from "../model/types";
+import type { Playlist } from "../api/types";
 import type { ListResponse } from "@/src/shared/api/types";
 
-export const mapPlaylistsData = (data?: ListResponse<Playlist>) => {
+export const toPlaylistPreviews = (data?: ListResponse<Playlist>) => {
     if (!data?.data) return [];
 
     return data.data.map((playlist) => {

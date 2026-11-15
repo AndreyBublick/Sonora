@@ -1,6 +1,6 @@
 import {CarouselSection} from "@/src/widgets/carousel-section";
 import {type GetTracksParams, TrackCard, useTracks} from "@/src/entities/track";
-import {LIKE} from "@/src/features/like/model/constants";
+import {LIKE} from "@/src/features/like";
 
 type TracksSectionProps = {
     title: string;
@@ -8,9 +8,9 @@ type TracksSectionProps = {
 }
 
 export const TracksSection = ({ title, queryTrackParams }: TracksSectionProps) => {
-    const { data, isLoading } = useTracks(queryTrackParams);
+    const { data:items=[], isLoading } = useTracks(queryTrackParams);
 
-    const items = data ?? [];
+
     const ratio = "1.035 / 1"
 
     return (

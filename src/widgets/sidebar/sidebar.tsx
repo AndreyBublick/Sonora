@@ -6,7 +6,6 @@ import type {SidebarProps} from "./sidebar.props";
 export const Sidebar = ({logo, navigationItems}: SidebarProps) => {
 
     return (
-        <>
             <aside
                 className={`d-none d-lg-block pe-3 pt-5 pb-3`}
                 style={{
@@ -18,6 +17,5 @@ export const Sidebar = ({logo, navigationItems}: SidebarProps) => {
             >
                 <SidebarContent wrapperClassName={'pt-4'} logo={logo} navigationItems={navigationItems}/>
             </aside>
-        </>
     );
 };

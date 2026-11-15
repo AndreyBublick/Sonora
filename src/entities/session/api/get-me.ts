@@ -1,5 +1,5 @@
 import {request} from "@/src/shared/api";
-import {User} from "../model/types";
+import {AuthUser} from "../model/types";
 
-export const getMe = (): Promise<User> =>
-    request<User>({ method: "GET", url: "/auth/me" });
+export const getMe = (): Promise<AuthUser> =>
+    request<AuthUser>({ method: "GET", url: "/auth/me" });

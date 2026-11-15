@@ -3,11 +3,11 @@ import {clsx} from "clsx";
 import React from "react";
 
 
-export const SectionTitle = ({as='h2', children, className='', style={}}: SectionTitleProps) => {
+export const SectionTitle = ({as='h2', children, className='fw-bold fs-2', style={}}: SectionTitleProps) => {
 
     const Wrapper = as
     return (
-        <Wrapper style={{color:'',...style, padding:6}} className={clsx(`fw-bold fs-2`,className) }>
+        <Wrapper style={{color:'', padding:6, ...style,}} className={clsx(``,className) }>
             {children}
         </Wrapper>
     );

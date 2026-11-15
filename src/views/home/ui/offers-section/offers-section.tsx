@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {SectionTitle} from "@/src/shared/ui/section-title";
+import {SectionTitle} from "@/src/shared/ui";
 import {PricingCard ,Pricing} from "./pricing-card";
 import {toast} from "sonner";
 

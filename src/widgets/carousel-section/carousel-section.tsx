@@ -1,7 +1,6 @@
 "use client";
 import type {CarouselSectionProps} from "./carousel-section.props";
-import {MediaCarousel} from "@/src/shared/ui";
-import {SectionTitle} from "@/src/shared/ui/section-title";
+import {MediaCarousel,SectionTitle} from "@/src/shared/ui";
 import {useMediaQuery} from "@/src/shared/lib";
 import {MediaCardSkeleton} from "@/src/shared/ui/media-card";
 import {useMemo} from "react";
