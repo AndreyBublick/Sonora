@@ -1,11 +1,11 @@
 import {keepPreviousData, useQuery} from "@tanstack/react-query";
-import Hero from "@assets/images/hero.avif";
 import {ListResponse} from "@/src/shared/api/types";
 import {GetAuthorsParams} from "../api/types";
 import {toAuthorPreviews} from "../lib/to-author-previews";
 import {Author, AuthorPreview} from "../model/types";
 import { Pushkin, Akhmatova, Lermontov, Yesenin } from "@assets/images/poets";
 import { Tchaikovsky, Rachmaninoff, Stravinsky, Shostakovich } from "@assets/images/composers";
+import { DuaLipa, EdSheeran, SamSmith, Adele } from "@assets/images/singers";
 
 export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
     data: [
@@ -95,9 +95,9 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
             type: "author",
             attributes: {
                 id: "sing-1",
-                name: "Fyodor Chaliapin",
-                years: "1873 – 1938",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                name: "Dua Lipa",
+                years: "1995 – now",
+                image: {url: DuaLipa.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -105,9 +105,9 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
             type: "author",
             attributes: {
                 id: "sing-2",
-                name: "Galina Vishnevskaya",
-                years: "1934 – 2012",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                name: "Ed Sheeran",
+                years: "1991 – now",
+                image: {url: EdSheeran.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -115,9 +115,9 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
             type: "author",
             attributes: {
                 id: "sing-3",
-                name: "Leonid Kharitonov",
-                years: "1925 – 2016",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                name: "Sam Smith",
+                years: "1992 – now",
+                image: {url: SamSmith.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -125,29 +125,9 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
             type: "author",
             attributes: {
                 id: "sing-4",
-                name: "Anna Netrebko",
-                years: "1971 – 2004",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
-            },
-        },
-        {
-            id: "sing-5",
-            type: "author",
-            attributes: {
-                id: "sing-5",
-                name: "Dmitri Hvorostovsky",
-                years: "1962 – 2017",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
-            },
-        },
-        {
-            id: "sing-6",
-            type: "author",
-            attributes: {
-                id: "sing-6",
-                name: "Boris Shavro",
-                years: "1930 – 2014",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                name: "Adele",
+                years: "1988 – now",
+                image: {url: Adele.src, width: 80, height: 80, fileSize: 4000},
             },
         },
     ],
