@@ -4,6 +4,8 @@ import {ListResponse} from "@/src/shared/api/types";
 import {GetAuthorsParams} from "../api/types";
 import {toAuthorPreviews} from "../lib/to-author-previews";
 import {Author, AuthorPreview} from "../model/types";
+import { Pushkin, Akhmatova, Lermontov, Yesenin } from "@assets/images/poets";
+import { Tchaikovsky, Rachmaninoff, Stravinsky, Shostakovich } from "@assets/images/composers";
 
 export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
     data: [
@@ -14,7 +16,7 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
                 id: "poet-1",
                 name: "Alexander Pushkin",
                 years: "1799 – 1837",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                image: {url: Pushkin.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -24,7 +26,7 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
                 id: "poet-2",
                 name: "Anna Akhmatova",
                 years: "1889 – 1966",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                image: {url: Akhmatova.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -34,7 +36,7 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
                 id: "poet-3",
                 name: "Mikhail Lermontov",
                 years: "1814 – 1841",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                image: {url: Lermontov.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -44,27 +46,7 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
                 id: "poet-4",
                 name: "Sergei Yesenin",
                 years: "1895 – 1925",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
-            },
-        },
-        {
-            id: "poet-5",
-            type: "author",
-            attributes: {
-                id: "poet-5",
-                name: "Marina Tsvetaeva",
-                years: "1892 – 1941",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
-            },
-        },
-        {
-            id: "poet-6",
-            type: "author",
-            attributes: {
-                id: "poet-6",
-                name: "Osip Mandelstam",
-                years: "1891 – 1938",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                image: {url: Yesenin.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -74,7 +56,7 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
                 id: "comp-1",
                 name: "Pyotr Tchaikovsky",
                 years: "1840 – 1893",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                image: {url: Tchaikovsky.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -84,7 +66,7 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
                 id: "comp-2",
                 name: "Sergei Rachmaninoff",
                 years: "1873 – 1943",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                image: {url: Rachmaninoff.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -94,7 +76,7 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
                 id: "comp-3",
                 name: "Igor Stravinsky",
                 years: "1882 – 1971",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                image: {url: Stravinsky.src, width: 80, height: 80, fileSize: 4000},
             },
         },
         {
@@ -104,29 +86,10 @@ export const MOCK_AUTHORS_RESPONSE: ListResponse<Author> = {
                 id: "comp-4",
                 name: "Dmitri Shostakovich",
                 years: "1906 – 1975",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
+                image: {url: Shostakovich.src, width: 80, height: 80, fileSize: 4000},
             },
         },
-        {
-            id: "comp-5",
-            type: "author",
-            attributes: {
-                id: "comp-5",
-                name: "Sergei Prokofiev",
-                years: "1891 – 1953",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
-            },
-        },
-        {
-            id: "comp-6",
-            type: "author",
-            attributes: {
-                id: "comp-6",
-                name: "Nikolai Rimsky-Korsakov",
-                years: "1844 – 1908",
-                image: {url: Hero.src, width: 80, height: 80, fileSize: 4000},
-            },
-        },
+
         {
             id: "sing-1",
             type: "author",
