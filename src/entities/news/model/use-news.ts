@@ -4,7 +4,7 @@ import {toNewsPreviews} from "../lib/to-news-previews";
 import {News} from "../model/types";
 import {ListResponse} from "@/src/shared/api/types";
 import {GetNewsParams} from "../api/types";
-import Hero from "@assets/images/hero.avif";
+import NewsPoster from "@assets/images/news/news_poster.png";
 
 export const MOCK_NEWS_RESPONSE: ListResponse<News> = {
     data: [
@@ -19,7 +19,7 @@ export const MOCK_NEWS_RESPONSE: ListResponse<News> = {
                 publishedAt: "2025-09-15T00:00:00Z",
                 addedAt: "2025-09-15T00:00:00Z",
                 isPublished: true,
-                image: { url: Hero.src, width: 200, height: 200, fileSize: 40000 },
+                image: { url: NewsPoster.src, width: 200, height: 200, fileSize: 40000 },
             },
         },
         {
@@ -33,7 +33,7 @@ export const MOCK_NEWS_RESPONSE: ListResponse<News> = {
                 publishedAt: "2025-09-16T00:00:00Z",
                 addedAt: "2025-09-16T00:00:00Z",
                 isPublished: true,
-                image: { url: Hero.src, width: 200, height: 200, fileSize: 40000 },
+                image: { url: NewsPoster.src, width: 200, height: 200, fileSize: 40000 },
             },
         },
         {
@@ -47,7 +47,7 @@ export const MOCK_NEWS_RESPONSE: ListResponse<News> = {
                 publishedAt: "2025-09-17T00:00:00Z",
                 addedAt: "2025-09-17T00:00:00Z",
                 isPublished: true,
-                image: { url: Hero.src, width: 200, height: 200, fileSize: 40000 },
+                image: { url: NewsPoster.src, width: 200, height: 200, fileSize: 40000 },
             },
         },
         {
@@ -61,7 +61,7 @@ export const MOCK_NEWS_RESPONSE: ListResponse<News> = {
                 publishedAt: "2025-09-18T00:00:00Z",
                 addedAt: "2025-09-18T00:00:00Z",
                 isPublished: true,
-                image: { url: Hero.src, width: 200, height: 200, fileSize: 40000 },
+                image: { url: NewsPoster.src, width: 200, height: 200, fileSize: 40000 },
             },
         },
     ],

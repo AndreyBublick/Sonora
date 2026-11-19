@@ -23,13 +23,15 @@ export const NewsCard = ({
                 className
             )}
         >
-            <div style={{ width: 148, flexShrink: 0 }}>
+            <div style={{ width: 148, flexShrink: 0 }} className={'position-relative'}>
+
                 <MediaElement
                     type="image"
                     src={image.url}
                     alt={title}
                     className="rounded-1"
                 />
+                <div className={'position-absolute top-0 left-0 w-100 h-100'} style={{opacity:.15, backgroundColor:'black', zIndex:'2'}} />
             </div>
 
             <div className="">
