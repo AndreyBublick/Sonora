@@ -4,7 +4,7 @@ import {toNewsPreviews} from "../lib/to-news-previews";
 import {News} from "../model/types";
 import {ListResponse} from "@/src/shared/api/types";
 import {GetNewsParams} from "../api/types";
-import NewsPoster from "@assets/images/news/news_poster.png";
+import NewsPoster from "@assets/images/news/news_poster.avif";
 
 export const MOCK_NEWS_RESPONSE: ListResponse<News> = {
     data: [
