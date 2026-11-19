@@ -3,12 +3,13 @@ import type {HeroSectionProps} from "./hero-section.props";
 import Hero from '@assets/images/hero.avif';
 import {UiButton} from "@/src/shared/ui";
 import {useMediaQuery} from "@/src/shared/lib";
+import {useSidebarState} from "@/src/shared/model";
 
 
 export const HeroSection = ({}: HeroSectionProps) => {
 
     const isMobile = useMediaQuery({maxWidth:992})
-    
+    const {isOpen} = useSidebarState()
     return (
         <section className={`${isMobile ? 'rounded-3' : 'rounded-4'} position-relative d-flex align-items-center`} style={{
             marginTop: isMobile ? '-56px' : '-66px',
@@ -30,8 +31,8 @@ export const HeroSection = ({}: HeroSectionProps) => {
             padding:isMobile ? '80px 0px 20px' : '100px 0px 40px',
         }}>
             <div className={`p-4`} style={{
-                maxWidth: isMobile ? '65dvw' : '30dvw',
-
+                transition:'max-width 0.25s ease-out',
+                maxWidth: isMobile ? '65dvw' : isOpen ? '20dvw' : '35dvw',
             }}>
                 <h1 className={'fs-1 fw-bolder'} style={{
                     lineHeight:1.75,
