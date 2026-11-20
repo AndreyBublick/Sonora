@@ -75,6 +75,7 @@ export const Footer = () => {
     return (
         <footer
             style={{
+                position:'relative',
                 padding: "32px 0px",
                 backgroundColor: "var(--gray-800)",
                 color: "var(--gray-100)",

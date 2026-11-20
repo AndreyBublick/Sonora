@@ -5,6 +5,10 @@ import type {JoinOurPlatformSectionProps} from "./join-our-platform-section.prop
 import {JoinForm} from "./join-form";
 import {useAuth} from "@/src/entities/session";
 import {SectionTitle} from "@/src/shared/ui";
+import Back from "@assets/images/footer/placeholder-back.png";
+import Front from "@assets/images/footer/placeholder-front.png";
+import Image from "next/image";
+
 
 
 export const JoinOurPlatformSection = ({}: JoinOurPlatformSectionProps) => {
@@ -16,7 +20,7 @@ export const JoinOurPlatformSection = ({}: JoinOurPlatformSectionProps) => {
     }
 
     return (
-        <section className="py-5" style={{ minHeight: "500px" }}>
+        <section className="py-5 position-relative" style={{ minHeight: "640px" }}>
             <div className="container px-0">
                 <div className="row g-5 align-items-center justify-content-between">
 
@@ -50,6 +54,8 @@ export const JoinOurPlatformSection = ({}: JoinOurPlatformSectionProps) => {
                         </div>
                     </div>
                 </div>
+            <Image src={Back} className={'position-absolute'} style={{top:'calc(100% - 120px)', right:'-64px'}} alt="placeholder-back" />
+            <Image src={Front} className={'position-absolute'} style={{top:'calc(100% - 82px)', right:'-64px'}} alt="placeholder-front" />
             </div>
         </section>
     );
